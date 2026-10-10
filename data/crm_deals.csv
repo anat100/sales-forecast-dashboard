@@ -1,0 +1,380 @@
+deal_id,owner,region,source_channel,stage,amount_eur,created_date,close_date,snapshot_date
+D-2001,A. Becker,DACH,Paid Search,Closed Won,12000,2025-12-08,2026-01-13,2026-10-10
+D-2002,A. Becker,DACH,Paid Search,Closed Won,9000,2025-09-30,2026-01-12,2026-10-10
+D-2003,A. Becker,DACH,Events,Closed Won,18000,2025-11-22,2026-01-02,2026-10-10
+D-2004,A. Becker,DACH,Paid Search,Closed Won,48000,2025-11-04,2026-01-03,2026-10-10
+D-2005,A. Becker,DACH,Outbound,Closed Lost,9000,2025-11-10,2026-01-02,2026-10-10
+D-2006,A. Becker,DACH,Referral,Closed Lost,6000,2025-10-15,2026-01-21,2026-10-10
+D-2007,A. Becker,DACH,Paid Search,Closed Lost,6000,2025-11-21,2026-01-13,2026-10-10
+D-2008,A. Becker,DACH,Events,Closed Lost,12000,2025-11-17,2026-01-18,2026-10-10
+D-2009,A. Becker,DACH,Content/SEO,Closed Lost,9000,2025-09-29,2026-01-05,2026-10-10
+D-2010,A. Becker,DACH,Referral,Closed Won,12000,2025-10-23,2026-02-04,2026-10-10
+D-2011,A. Becker,DACH,Referral,Closed Won,18000,2026-01-01,2026-02-12,2026-10-10
+D-2012,A. Becker,DACH,Referral,Closed Won,9000,2026-01-13,2026-02-19,2026-10-10
+D-2013,A. Becker,DACH,Events,Closed Won,18000,2025-11-10,2026-02-16,2026-10-10
+D-2014,A. Becker,DACH,Content/SEO,Closed Lost,60000,2025-12-06,2026-02-15,2026-10-10
+D-2015,A. Becker,DACH,Paid Search,Closed Lost,12000,2025-12-14,2026-02-08,2026-10-10
+D-2016,A. Becker,DACH,Events,Closed Lost,24000,2025-11-19,2026-02-19,2026-10-10
+D-2017,A. Becker,DACH,Referral,Closed Lost,60000,2025-12-12,2026-02-11,2026-10-10
+D-2018,A. Becker,DACH,LinkedIn Ads,Closed Won,9000,2025-12-24,2026-03-17,2026-10-10
+D-2019,A. Becker,DACH,Events,Closed Won,36000,2025-12-03,2026-03-05,2026-10-10
+D-2020,A. Becker,DACH,Referral,Closed Won,6000,2026-02-11,2026-03-22,2026-10-10
+D-2021,A. Becker,DACH,Referral,Closed Won,36000,2025-12-27,2026-03-11,2026-10-10
+D-2022,A. Becker,DACH,Paid Search,Closed Lost,60000,2026-02-14,2026-03-19,2026-10-10
+D-2023,A. Becker,DACH,Paid Search,Closed Lost,60000,2026-02-04,2026-03-09,2026-10-10
+D-2024,A. Becker,DACH,Outbound,Closed Lost,24000,2025-12-16,2026-03-24,2026-10-10
+D-2025,A. Becker,DACH,Outbound,Closed Lost,60000,2026-01-25,2026-03-27,2026-10-10
+D-2026,A. Becker,DACH,Events,Closed Lost,36000,2026-02-14,2026-03-13,2026-10-10
+D-2027,A. Becker,DACH,LinkedIn Ads,Closed Won,9000,2026-03-10,2026-04-16,2026-10-10
+D-2028,A. Becker,DACH,Events,Closed Won,24000,2026-02-03,2026-04-05,2026-10-10
+D-2029,A. Becker,DACH,Paid Search,Closed Won,48000,2026-01-25,2026-04-28,2026-10-10
+D-2030,A. Becker,DACH,Content/SEO,Closed Lost,48000,2026-01-10,2026-04-15,2026-10-10
+D-2031,A. Becker,DACH,Content/SEO,Closed Lost,48000,2025-12-31,2026-04-05,2026-10-10
+D-2032,A. Becker,DACH,Outbound,Closed Lost,48000,2026-02-12,2026-04-23,2026-10-10
+D-2033,A. Becker,DACH,LinkedIn Ads,Closed Won,18000,2026-03-26,2026-05-05,2026-10-10
+D-2034,A. Becker,DACH,Paid Search,Closed Won,12000,2026-03-10,2026-05-08,2026-10-10
+D-2035,A. Becker,DACH,LinkedIn Ads,Closed Won,60000,2026-02-11,2026-05-27,2026-10-10
+D-2036,A. Becker,DACH,Events,Closed Lost,6000,2026-03-28,2026-05-10,2026-10-10
+D-2037,A. Becker,DACH,Content/SEO,Closed Lost,36000,2026-02-10,2026-05-18,2026-10-10
+D-2038,A. Becker,DACH,Outbound,Closed Lost,6000,2026-02-11,2026-05-05,2026-10-10
+D-2039,A. Becker,DACH,Events,Closed Lost,48000,2026-03-12,2026-05-26,2026-10-10
+D-2040,A. Becker,DACH,Paid Search,Closed Won,60000,2026-04-01,2026-06-21,2026-10-10
+D-2041,A. Becker,DACH,LinkedIn Ads,Closed Lost,18000,2026-03-14,2026-06-03,2026-10-10
+D-2042,A. Becker,DACH,Paid Search,Closed Lost,36000,2026-05-04,2026-06-04,2026-10-10
+D-2043,A. Becker,DACH,Paid Search,Closed Lost,12000,2026-02-28,2026-06-01,2026-10-10
+D-2044,A. Becker,DACH,Referral,Closed Won,6000,2026-05-08,2026-07-03,2026-10-10
+D-2045,A. Becker,DACH,Content/SEO,Closed Won,48000,2026-05-04,2026-07-05,2026-10-10
+D-2046,A. Becker,DACH,Paid Search,Closed Won,36000,2026-06-01,2026-07-16,2026-10-10
+D-2047,A. Becker,DACH,Content/SEO,Closed Lost,60000,2026-04-20,2026-07-15,2026-10-10
+D-2048,A. Becker,DACH,Outbound,Closed Lost,12000,2026-05-26,2026-07-03,2026-10-10
+D-2049,A. Becker,DACH,Outbound,Closed Lost,24000,2026-04-16,2026-07-11,2026-10-10
+D-2050,A. Becker,DACH,Referral,Closed Lost,6000,2026-05-16,2026-07-06,2026-10-10
+D-2051,A. Becker,DACH,Paid Search,Closed Lost,12000,2026-04-09,2026-07-12,2026-10-10
+D-2052,A. Becker,DACH,Outbound,Closed Won,24000,2026-07-11,2026-08-21,2026-10-10
+D-2053,A. Becker,DACH,LinkedIn Ads,Closed Won,24000,2026-06-02,2026-08-17,2026-10-10
+D-2054,A. Becker,DACH,Referral,Closed Won,36000,2026-06-28,2026-08-25,2026-10-10
+D-2055,A. Becker,DACH,LinkedIn Ads,Closed Lost,18000,2026-07-03,2026-08-21,2026-10-10
+D-2056,A. Becker,DACH,LinkedIn Ads,Closed Lost,48000,2026-07-04,2026-08-27,2026-10-10
+D-2057,A. Becker,DACH,Outbound,Closed Lost,60000,2026-06-08,2026-08-17,2026-10-10
+D-2058,A. Becker,DACH,Events,Closed Lost,6000,2026-06-02,2026-08-01,2026-10-10
+D-2059,A. Becker,DACH,Content/SEO,Closed Won,36000,2026-07-03,2026-09-15,2026-10-10
+D-2060,A. Becker,DACH,LinkedIn Ads,Closed Won,9000,2026-07-27,2026-09-08,2026-10-10
+D-2061,A. Becker,DACH,LinkedIn Ads,Closed Won,60000,2026-06-26,2026-09-07,2026-10-10
+D-2062,A. Becker,DACH,Outbound,Closed Lost,6000,2026-06-26,2026-09-20,2026-10-10
+D-2063,A. Becker,DACH,Events,Closed Lost,9000,2026-08-03,2026-09-12,2026-10-10
+D-2064,A. Becker,DACH,LinkedIn Ads,Closed Lost,18000,2026-07-02,2026-09-26,2026-10-10
+D-2065,A. Becker,DACH,Outbound,Closed Lost,36000,2026-08-09,2026-09-14,2026-10-10
+D-2066,A. Becker,DACH,Outbound,Closed Lost,60000,2026-06-29,2026-09-13,2026-10-10
+D-2067,A. Becker,DACH,Outbound,Discovery,60000,2026-09-16,2027-02-01,2026-10-10
+D-2068,A. Becker,DACH,LinkedIn Ads,Discovery,36000,2026-07-13,2027-01-16,2026-10-10
+D-2069,A. Becker,DACH,Referral,Demo,9000,2026-06-25,2026-10-11,2026-10-10
+D-2070,A. Becker,DACH,Paid Search,Proposal,18000,2026-06-22,2026-10-17,2026-10-10
+D-2071,A. Becker,DACH,Content/SEO,Discovery,36000,2026-06-30,2026-11-08,2026-10-10
+D-2072,A. Becker,DACH,Events,Demo,36000,2026-07-03,2027-01-02,2026-10-10
+D-2073,A. Becker,DACH,Referral,Proposal,12000,2026-08-13,2027-01-17,2026-10-10
+D-2074,A. Becker,DACH,Referral,Discovery,12000,2026-08-10,2026-11-28,2026-10-10
+D-2075,A. Becker,DACH,Referral,Discovery,60000,2026-09-17,2027-01-06,2026-10-10
+D-2076,A. Becker,DACH,Paid Search,Proposal,60000,2026-07-10,2026-12-11,2026-10-10
+D-2077,A. Becker,DACH,Paid Search,Negotiation,6000,2026-08-31,2026-10-17,2026-10-10
+D-2078,A. Becker,DACH,Events,Demo,9000,2026-06-13,2026-12-25,2026-10-10
+D-2079,A. Becker,DACH,Outbound,Demo,18000,2026-08-01,2027-02-20,2026-10-10
+D-2080,A. Becker,DACH,Outbound,Discovery,18000,2026-08-05,2026-11-26,2026-10-10
+D-2081,A. Becker,DACH,Events,Demo,18000,2026-07-26,2027-01-09,2026-10-10
+D-2082,A. Becker,DACH,Outbound,Discovery,9000,2026-08-26,2026-10-25,2026-10-10
+D-2083,A. Becker,DACH,LinkedIn Ads,Discovery,9000,2026-06-27,2026-10-20,2026-10-10
+D-2084,A. Becker,DACH,LinkedIn Ads,Negotiation,24000,2026-09-17,2026-12-12,2026-10-10
+D-2085,A. Becker,DACH,LinkedIn Ads,Negotiation,60000,2026-08-16,2026-10-14,2026-10-10
+D-2086,A. Becker,DACH,Referral,Negotiation,48000,2026-07-07,2027-01-06,2026-10-10
+D-2087,A. Becker,DACH,Outbound,Demo,9000,2026-08-26,2026-11-12,2026-10-10
+D-2088,A. Becker,DACH,Events,Demo,6000,2026-08-10,2026-11-15,2026-10-10
+D-2089,J. Sørensen,Nordics,Paid Search,Closed Won,24000,2025-12-10,2026-01-17,2026-10-10
+D-2090,J. Sørensen,Nordics,Content/SEO,Closed Won,18000,2025-11-25,2026-01-04,2026-10-10
+D-2091,J. Sørensen,Nordics,LinkedIn Ads,Closed Lost,12000,2025-11-04,2026-01-02,2026-10-10
+D-2092,J. Sørensen,Nordics,Events,Closed Lost,48000,2025-11-30,2026-01-27,2026-10-10
+D-2093,J. Sørensen,Nordics,Paid Search,Closed Lost,60000,2025-10-31,2026-01-05,2026-10-10
+D-2094,J. Sørensen,Nordics,Events,Closed Lost,6000,2025-11-22,2026-01-09,2026-10-10
+D-2095,J. Sørensen,Nordics,Content/SEO,Closed Won,24000,2025-12-22,2026-02-01,2026-10-10
+D-2096,J. Sørensen,Nordics,Paid Search,Closed Won,9000,2025-12-24,2026-02-20,2026-10-10
+D-2097,J. Sørensen,Nordics,Events,Closed Won,24000,2026-01-14,2026-02-28,2026-10-10
+D-2098,J. Sørensen,Nordics,Referral,Closed Lost,48000,2025-12-14,2026-02-11,2026-10-10
+D-2099,J. Sørensen,Nordics,Outbound,Closed Lost,6000,2025-11-05,2026-02-05,2026-10-10
+D-2100,J. Sørensen,Nordics,Paid Search,Closed Won,9000,2026-01-02,2026-03-06,2026-10-10
+D-2101,J. Sørensen,Nordics,Outbound,Closed Won,12000,2025-12-28,2026-03-07,2026-10-10
+D-2102,J. Sørensen,Nordics,Content/SEO,Closed Won,24000,2026-01-20,2026-03-17,2026-10-10
+D-2103,J. Sørensen,Nordics,Content/SEO,Closed Lost,12000,2026-01-17,2026-03-17,2026-10-10
+D-2104,J. Sørensen,Nordics,Paid Search,Closed Lost,6000,2026-01-28,2026-03-26,2026-10-10
+D-2105,J. Sørensen,Nordics,Referral,Closed Lost,6000,2025-12-02,2026-03-01,2026-10-10
+D-2106,J. Sørensen,Nordics,Events,Closed Lost,60000,2026-01-10,2026-03-07,2026-10-10
+D-2107,J. Sørensen,Nordics,Referral,Closed Lost,48000,2025-12-06,2026-03-04,2026-10-10
+D-2108,J. Sørensen,Nordics,Outbound,Closed Won,48000,2026-02-07,2026-04-17,2026-10-10
+D-2109,J. Sørensen,Nordics,LinkedIn Ads,Closed Won,18000,2026-01-25,2026-04-08,2026-10-10
+D-2110,J. Sørensen,Nordics,LinkedIn Ads,Closed Lost,36000,2026-03-13,2026-04-13,2026-10-10
+D-2111,J. Sørensen,Nordics,Events,Closed Lost,9000,2026-02-03,2026-04-01,2026-10-10
+D-2112,J. Sørensen,Nordics,Outbound,Closed Lost,6000,2026-03-02,2026-04-06,2026-10-10
+D-2113,J. Sørensen,Nordics,Outbound,Closed Won,24000,2026-03-20,2026-05-20,2026-10-10
+D-2114,J. Sørensen,Nordics,LinkedIn Ads,Closed Won,24000,2026-02-03,2026-05-02,2026-10-10
+D-2115,J. Sørensen,Nordics,Paid Search,Closed Won,12000,2026-02-11,2026-05-09,2026-10-10
+D-2116,J. Sørensen,Nordics,Content/SEO,Closed Lost,36000,2026-02-06,2026-05-12,2026-10-10
+D-2117,J. Sørensen,Nordics,LinkedIn Ads,Closed Lost,6000,2026-03-05,2026-05-08,2026-10-10
+D-2118,J. Sørensen,Nordics,Content/SEO,Closed Lost,12000,2026-04-17,2026-05-12,2026-10-10
+D-2119,J. Sørensen,Nordics,Content/SEO,Closed Lost,9000,2026-02-17,2026-05-13,2026-10-10
+D-2120,J. Sørensen,Nordics,Paid Search,Closed Won,18000,2026-03-06,2026-06-08,2026-10-10
+D-2121,J. Sørensen,Nordics,LinkedIn Ads,Closed Won,9000,2026-04-29,2026-06-09,2026-10-10
+D-2122,J. Sørensen,Nordics,Events,Closed Won,48000,2026-05-15,2026-06-19,2026-10-10
+D-2123,J. Sørensen,Nordics,Paid Search,Closed Lost,24000,2026-04-17,2026-06-10,2026-10-10
+D-2124,J. Sørensen,Nordics,Content/SEO,Closed Lost,12000,2026-04-06,2026-06-19,2026-10-10
+D-2125,J. Sørensen,Nordics,Outbound,Closed Won,60000,2026-04-30,2026-07-05,2026-10-10
+D-2126,J. Sørensen,Nordics,LinkedIn Ads,Closed Lost,48000,2026-04-04,2026-07-02,2026-10-10
+D-2127,J. Sørensen,Nordics,Outbound,Closed Lost,6000,2026-04-09,2026-07-17,2026-10-10
+D-2128,J. Sørensen,Nordics,Paid Search,Closed Lost,18000,2026-06-17,2026-07-22,2026-10-10
+D-2129,J. Sørensen,Nordics,Events,Closed Won,36000,2026-05-18,2026-08-04,2026-10-10
+D-2130,J. Sørensen,Nordics,Outbound,Closed Lost,6000,2026-05-20,2026-08-21,2026-10-10
+D-2131,J. Sørensen,Nordics,Paid Search,Closed Lost,60000,2026-06-11,2026-08-08,2026-10-10
+D-2132,J. Sørensen,Nordics,Referral,Closed Won,9000,2026-06-22,2026-09-24,2026-10-10
+D-2133,J. Sørensen,Nordics,Paid Search,Closed Won,9000,2026-06-17,2026-09-22,2026-10-10
+D-2134,J. Sørensen,Nordics,Content/SEO,Closed Won,60000,2026-08-01,2026-09-09,2026-10-10
+D-2135,J. Sørensen,Nordics,Outbound,Closed Lost,18000,2026-08-01,2026-09-24,2026-10-10
+D-2136,J. Sørensen,Nordics,Events,Closed Lost,60000,2026-06-25,2026-09-21,2026-10-10
+D-2137,J. Sørensen,Nordics,Paid Search,Closed Lost,60000,2026-07-04,2026-09-03,2026-10-10
+D-2138,J. Sørensen,Nordics,LinkedIn Ads,Closed Won,9000,2026-07-28,2026-10-04,2026-10-10
+D-2139,J. Sørensen,Nordics,Outbound,Closed Won,24000,2026-07-27,2026-10-06,2026-10-10
+D-2140,J. Sørensen,Nordics,Events,Demo,6000,2026-08-05,2026-12-01,2026-10-10
+D-2141,J. Sørensen,Nordics,Content/SEO,Discovery,60000,2026-09-08,2026-12-23,2026-10-10
+D-2142,J. Sørensen,Nordics,Referral,Proposal,9000,2026-08-07,2026-11-15,2026-10-10
+D-2143,J. Sørensen,Nordics,Events,Discovery,24000,2026-10-03,2027-02-16,2026-10-10
+D-2144,J. Sørensen,Nordics,LinkedIn Ads,Discovery,48000,2026-09-01,2026-11-15,2026-10-10
+D-2145,J. Sørensen,Nordics,LinkedIn Ads,Negotiation,9000,2026-07-23,2027-02-03,2026-10-10
+D-2146,J. Sørensen,Nordics,Paid Search,Proposal,24000,2026-09-19,2026-11-12,2026-10-10
+D-2147,J. Sørensen,Nordics,LinkedIn Ads,Proposal,6000,2026-08-16,2026-10-26,2026-10-10
+D-2148,J. Sørensen,Nordics,Outbound,Discovery,24000,2026-08-15,2026-11-15,2026-10-10
+D-2149,J. Sørensen,Nordics,Paid Search,Discovery,36000,2026-09-20,2026-11-11,2026-10-10
+D-2150,J. Sørensen,Nordics,Outbound,Demo,18000,2026-09-20,2026-11-13,2026-10-10
+D-2151,J. Sørensen,Nordics,Events,Discovery,9000,2026-08-19,2026-12-09,2026-10-10
+D-2152,J. Sørensen,Nordics,Content/SEO,Demo,48000,2026-08-20,2027-01-03,2026-10-10
+D-2153,J. Sørensen,Nordics,Outbound,Negotiation,24000,2026-06-21,2026-11-02,2026-10-10
+D-2154,J. Sørensen,Nordics,LinkedIn Ads,Negotiation,36000,2026-08-11,2026-11-09,2026-10-10
+D-2155,J. Sørensen,Nordics,Outbound,Proposal,6000,2026-06-14,2027-01-14,2026-10-10
+D-2156,J. Sørensen,Nordics,Outbound,Demo,18000,2026-07-27,2027-01-18,2026-10-10
+D-2157,J. Sørensen,Nordics,Outbound,Discovery,12000,2026-08-09,2027-02-14,2026-10-10
+D-2158,J. Sørensen,Nordics,Events,Negotiation,12000,2026-09-19,2026-11-18,2026-10-10
+D-2159,J. Sørensen,Nordics,Events,Demo,24000,2026-07-03,2026-11-09,2026-10-10
+D-2160,J. Sørensen,Nordics,Paid Search,Proposal,48000,2026-07-12,2026-11-18,2026-10-10
+D-2161,J. Sørensen,Nordics,Referral,Discovery,60000,2026-08-02,2026-10-17,2026-10-10
+D-2162,M. Dubois,Benelux,Events,Closed Won,36000,2025-10-30,2026-01-25,2026-10-10
+D-2163,M. Dubois,Benelux,Paid Search,Closed Lost,18000,2025-11-23,2026-01-18,2026-10-10
+D-2164,M. Dubois,Benelux,Paid Search,Closed Lost,36000,2025-10-02,2026-01-06,2026-10-10
+D-2165,M. Dubois,Benelux,Content/SEO,Closed Lost,18000,2025-10-31,2026-01-11,2026-10-10
+D-2166,M. Dubois,Benelux,Events,Closed Won,18000,2025-11-11,2026-02-01,2026-10-10
+D-2167,M. Dubois,Benelux,LinkedIn Ads,Closed Won,48000,2025-11-19,2026-02-24,2026-10-10
+D-2168,M. Dubois,Benelux,Events,Closed Lost,36000,2026-01-08,2026-02-09,2026-10-10
+D-2169,M. Dubois,Benelux,Outbound,Closed Lost,36000,2025-12-30,2026-02-09,2026-10-10
+D-2170,M. Dubois,Benelux,Content/SEO,Closed Lost,18000,2026-01-12,2026-02-17,2026-10-10
+D-2171,M. Dubois,Benelux,Outbound,Closed Lost,48000,2025-11-24,2026-02-08,2026-10-10
+D-2172,M. Dubois,Benelux,Paid Search,Closed Lost,48000,2025-12-13,2026-02-15,2026-10-10
+D-2173,M. Dubois,Benelux,Referral,Closed Won,48000,2025-12-23,2026-03-23,2026-10-10
+D-2174,M. Dubois,Benelux,Referral,Closed Lost,9000,2025-12-16,2026-03-01,2026-10-10
+D-2175,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,60000,2026-01-05,2026-03-28,2026-10-10
+D-2176,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,9000,2026-02-01,2026-03-26,2026-10-10
+D-2177,M. Dubois,Benelux,Paid Search,Closed Lost,9000,2025-12-12,2026-03-05,2026-10-10
+D-2178,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,6000,2026-02-21,2026-03-18,2026-10-10
+D-2179,M. Dubois,Benelux,LinkedIn Ads,Closed Won,6000,2026-02-12,2026-04-21,2026-10-10
+D-2180,M. Dubois,Benelux,Outbound,Closed Won,24000,2026-01-22,2026-04-17,2026-10-10
+D-2181,M. Dubois,Benelux,Referral,Closed Lost,9000,2026-01-31,2026-04-04,2026-10-10
+D-2182,M. Dubois,Benelux,Content/SEO,Closed Lost,18000,2026-02-04,2026-04-19,2026-10-10
+D-2183,M. Dubois,Benelux,Content/SEO,Closed Won,6000,2026-01-23,2026-05-01,2026-10-10
+D-2184,M. Dubois,Benelux,Outbound,Closed Won,60000,2026-02-28,2026-05-09,2026-10-10
+D-2185,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,18000,2026-02-10,2026-05-16,2026-10-10
+D-2186,M. Dubois,Benelux,Paid Search,Closed Lost,48000,2026-02-26,2026-05-01,2026-10-10
+D-2187,M. Dubois,Benelux,Outbound,Closed Lost,18000,2026-02-02,2026-05-01,2026-10-10
+D-2188,M. Dubois,Benelux,Outbound,Closed Won,9000,2026-04-11,2026-06-09,2026-10-10
+D-2189,M. Dubois,Benelux,Events,Closed Won,48000,2026-04-14,2026-06-12,2026-10-10
+D-2190,M. Dubois,Benelux,Content/SEO,Closed Lost,36000,2026-04-06,2026-06-23,2026-10-10
+D-2191,M. Dubois,Benelux,Paid Search,Closed Lost,48000,2026-05-03,2026-06-22,2026-10-10
+D-2192,M. Dubois,Benelux,LinkedIn Ads,Closed Won,9000,2026-04-05,2026-07-07,2026-10-10
+D-2193,M. Dubois,Benelux,LinkedIn Ads,Closed Won,24000,2026-06-01,2026-07-25,2026-10-10
+D-2194,M. Dubois,Benelux,Paid Search,Closed Lost,24000,2026-05-07,2026-07-08,2026-10-10
+D-2195,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,60000,2026-06-02,2026-07-20,2026-10-10
+D-2196,M. Dubois,Benelux,Referral,Closed Lost,48000,2026-06-14,2026-07-16,2026-10-10
+D-2197,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,48000,2026-06-04,2026-07-05,2026-10-10
+D-2198,M. Dubois,Benelux,Paid Search,Closed Lost,12000,2026-04-14,2026-07-01,2026-10-10
+D-2199,M. Dubois,Benelux,Outbound,Closed Won,12000,2026-05-18,2026-08-13,2026-10-10
+D-2200,M. Dubois,Benelux,Paid Search,Closed Won,36000,2026-07-11,2026-08-24,2026-10-10
+D-2201,M. Dubois,Benelux,Outbound,Closed Lost,18000,2026-06-24,2026-08-11,2026-10-10
+D-2202,M. Dubois,Benelux,Content/SEO,Closed Lost,60000,2026-07-19,2026-08-17,2026-10-10
+D-2203,M. Dubois,Benelux,Content/SEO,Closed Lost,48000,2026-06-11,2026-08-22,2026-10-10
+D-2204,M. Dubois,Benelux,Content/SEO,Closed Won,9000,2026-07-23,2026-09-01,2026-10-10
+D-2205,M. Dubois,Benelux,Paid Search,Closed Won,9000,2026-06-21,2026-09-12,2026-10-10
+D-2206,M. Dubois,Benelux,Content/SEO,Closed Won,18000,2026-06-30,2026-09-13,2026-10-10
+D-2207,M. Dubois,Benelux,LinkedIn Ads,Closed Lost,6000,2026-06-10,2026-09-03,2026-10-10
+D-2208,M. Dubois,Benelux,Content/SEO,Closed Lost,60000,2026-07-25,2026-09-12,2026-10-10
+D-2209,M. Dubois,Benelux,Outbound,Closed Lost,60000,2026-08-15,2026-09-12,2026-10-10
+D-2210,M. Dubois,Benelux,Paid Search,Closed Lost,18000,2026-06-30,2026-09-14,2026-10-10
+D-2211,M. Dubois,Benelux,Paid Search,Closed Lost,6000,2026-06-21,2026-09-13,2026-10-10
+D-2212,M. Dubois,Benelux,Content/SEO,Discovery,33000,2026-08-20,2026-10-21,2026-10-10
+D-2213,M. Dubois,Benelux,Content/SEO,Negotiation,50000,2026-07-02,2026-12-09,2026-10-10
+D-2214,M. Dubois,Benelux,Paid Search,Discovery,12000,2026-06-24,2026-12-20,2026-10-10
+D-2215,M. Dubois,Benelux,Content/SEO,Negotiation,67000,2026-06-28,2026-10-25,2026-10-10
+D-2216,M. Dubois,Benelux,Paid Search,Negotiation,16000,2026-08-03,2027-01-05,2026-10-10
+D-2217,M. Dubois,Benelux,Referral,Proposal,16000,2026-07-09,2026-12-27,2026-10-10
+D-2218,M. Dubois,Benelux,Referral,Discovery,12000,2026-08-20,2027-01-15,2026-10-10
+D-2219,M. Dubois,Benelux,Outbound,Discovery,12000,2026-08-14,2026-12-08,2026-10-10
+D-2220,M. Dubois,Benelux,Paid Search,Discovery,67000,2026-09-15,2026-12-11,2026-10-10
+D-2221,M. Dubois,Benelux,Events,Negotiation,12000,2026-09-09,2026-11-03,2026-10-10
+D-2222,M. Dubois,Benelux,LinkedIn Ads,Demo,25000,2026-09-13,2026-12-15,2026-10-10
+D-2223,M. Dubois,Benelux,Content/SEO,Demo,12000,2026-09-05,2026-12-22,2026-10-10
+D-2224,M. Dubois,Benelux,LinkedIn Ads,Discovery,33000,2026-09-03,2026-12-12,2026-10-10
+D-2225,M. Dubois,Benelux,Referral,Demo,33000,2026-09-16,2026-10-18,2026-10-10
+D-2226,M. Dubois,Benelux,Outbound,Discovery,25000,2026-09-04,2026-10-19,2026-10-10
+D-2227,M. Dubois,Benelux,Events,Proposal,8000,2026-09-22,2026-12-02,2026-10-10
+D-2228,M. Dubois,Benelux,Content/SEO,Negotiation,8000,2026-08-19,2026-10-25,2026-10-10
+D-2229,M. Dubois,Benelux,Referral,Discovery,50000,2026-09-26,2026-10-17,2026-10-10
+D-2230,M. Dubois,Benelux,Paid Search,Negotiation,8000,2026-06-28,2026-11-09,2026-10-10
+D-2231,L. Okafor,UK & Ireland,Content/SEO,Closed Won,36000,2025-12-04,2026-01-07,2026-10-10
+D-2232,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Won,36000,2025-12-01,2026-01-05,2026-10-10
+D-2233,L. Okafor,UK & Ireland,Content/SEO,Closed Lost,18000,2025-12-07,2026-01-02,2026-10-10
+D-2234,L. Okafor,UK & Ireland,Referral,Closed Lost,36000,2025-11-27,2026-01-14,2026-10-10
+D-2235,L. Okafor,UK & Ireland,Paid Search,Closed Lost,9000,2025-11-20,2026-01-10,2026-10-10
+D-2236,L. Okafor,UK & Ireland,Events,Closed Lost,60000,2025-10-23,2026-01-26,2026-10-10
+D-2237,L. Okafor,UK & Ireland,Outbound,Closed Won,9000,2025-12-08,2026-02-26,2026-10-10
+D-2238,L. Okafor,UK & Ireland,Paid Search,Closed Won,12000,2025-11-15,2026-02-21,2026-10-10
+D-2239,L. Okafor,UK & Ireland,Events,Closed Won,12000,2025-12-11,2026-02-13,2026-10-10
+D-2240,L. Okafor,UK & Ireland,Paid Search,Closed Lost,24000,2025-12-06,2026-02-22,2026-10-10
+D-2241,L. Okafor,UK & Ireland,Events,Closed Lost,36000,2025-11-24,2026-02-10,2026-10-10
+D-2242,L. Okafor,UK & Ireland,Events,Closed Lost,36000,2025-12-13,2026-02-01,2026-10-10
+D-2243,L. Okafor,UK & Ireland,Paid Search,Closed Lost,48000,2026-01-04,2026-02-24,2026-10-10
+D-2244,L. Okafor,UK & Ireland,Paid Search,Closed Won,12000,2026-01-29,2026-03-14,2026-10-10
+D-2245,L. Okafor,UK & Ireland,Events,Closed Won,48000,2026-01-02,2026-03-19,2026-10-10
+D-2246,L. Okafor,UK & Ireland,Referral,Closed Lost,6000,2026-02-02,2026-03-05,2026-10-10
+D-2247,L. Okafor,UK & Ireland,Referral,Closed Lost,48000,2026-01-28,2026-03-05,2026-10-10
+D-2248,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Lost,36000,2025-12-21,2026-03-20,2026-10-10
+D-2249,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Won,24000,2025-12-31,2026-04-06,2026-10-10
+D-2250,L. Okafor,UK & Ireland,Events,Closed Won,9000,2026-01-15,2026-04-04,2026-10-10
+D-2251,L. Okafor,UK & Ireland,Paid Search,Closed Won,18000,2026-02-23,2026-04-10,2026-10-10
+D-2252,L. Okafor,UK & Ireland,Paid Search,Closed Lost,6000,2026-01-27,2026-04-11,2026-10-10
+D-2253,L. Okafor,UK & Ireland,Referral,Closed Lost,12000,2026-03-01,2026-04-23,2026-10-10
+D-2254,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Lost,18000,2026-01-18,2026-04-13,2026-10-10
+D-2255,L. Okafor,UK & Ireland,Events,Closed Lost,18000,2026-03-20,2026-04-19,2026-10-10
+D-2256,L. Okafor,UK & Ireland,Content/SEO,Closed Lost,12000,2026-02-02,2026-04-17,2026-10-10
+D-2257,L. Okafor,UK & Ireland,Paid Search,Closed Won,18000,2026-03-31,2026-05-24,2026-10-10
+D-2258,L. Okafor,UK & Ireland,Paid Search,Closed Won,6000,2026-03-12,2026-05-22,2026-10-10
+D-2259,L. Okafor,UK & Ireland,Referral,Closed Won,48000,2026-02-21,2026-05-20,2026-10-10
+D-2260,L. Okafor,UK & Ireland,Referral,Closed Lost,48000,2026-03-18,2026-05-21,2026-10-10
+D-2261,L. Okafor,UK & Ireland,Outbound,Closed Lost,48000,2026-02-23,2026-05-08,2026-10-10
+D-2262,L. Okafor,UK & Ireland,Events,Closed Lost,60000,2026-02-12,2026-05-12,2026-10-10
+D-2263,L. Okafor,UK & Ireland,Referral,Closed Lost,6000,2026-04-11,2026-05-06,2026-10-10
+D-2264,L. Okafor,UK & Ireland,Referral,Closed Won,60000,2026-03-13,2026-06-08,2026-10-10
+D-2265,L. Okafor,UK & Ireland,Events,Closed Won,60000,2026-05-06,2026-06-27,2026-10-10
+D-2266,L. Okafor,UK & Ireland,Content/SEO,Closed Lost,9000,2026-04-24,2026-06-04,2026-10-10
+D-2267,L. Okafor,UK & Ireland,Events,Closed Lost,36000,2026-05-09,2026-06-14,2026-10-10
+D-2268,L. Okafor,UK & Ireland,Outbound,Closed Lost,6000,2026-05-18,2026-06-17,2026-10-10
+D-2269,L. Okafor,UK & Ireland,Outbound,Closed Lost,9000,2026-04-01,2026-06-05,2026-10-10
+D-2270,L. Okafor,UK & Ireland,Referral,Closed Lost,9000,2026-05-17,2026-06-17,2026-10-10
+D-2271,L. Okafor,UK & Ireland,Referral,Closed Won,12000,2026-05-24,2026-07-01,2026-10-10
+D-2272,L. Okafor,UK & Ireland,Events,Closed Won,9000,2026-05-22,2026-07-07,2026-10-10
+D-2273,L. Okafor,UK & Ireland,Outbound,Closed Won,24000,2026-06-05,2026-07-26,2026-10-10
+D-2274,L. Okafor,UK & Ireland,Referral,Closed Won,18000,2026-04-20,2026-07-03,2026-10-10
+D-2275,L. Okafor,UK & Ireland,Events,Closed Lost,36000,2026-05-07,2026-07-06,2026-10-10
+D-2276,L. Okafor,UK & Ireland,Events,Closed Lost,24000,2026-04-07,2026-07-05,2026-10-10
+D-2277,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Lost,24000,2026-04-09,2026-07-07,2026-10-10
+D-2278,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Lost,36000,2026-06-12,2026-07-11,2026-10-10
+D-2279,L. Okafor,UK & Ireland,Outbound,Closed Won,12000,2026-06-17,2026-08-21,2026-10-10
+D-2280,L. Okafor,UK & Ireland,Content/SEO,Closed Won,36000,2026-06-23,2026-08-13,2026-10-10
+D-2281,L. Okafor,UK & Ireland,Events,Closed Lost,6000,2026-06-15,2026-08-25,2026-10-10
+D-2282,L. Okafor,UK & Ireland,Referral,Closed Lost,9000,2026-06-22,2026-08-18,2026-10-10
+D-2283,L. Okafor,UK & Ireland,Content/SEO,Closed Won,48000,2026-07-09,2026-09-24,2026-10-10
+D-2284,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Won,48000,2026-06-01,2026-09-12,2026-10-10
+D-2285,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Lost,9000,2026-06-22,2026-09-11,2026-10-10
+D-2286,L. Okafor,UK & Ireland,Referral,Closed Lost,6000,2026-07-06,2026-09-06,2026-10-10
+D-2287,L. Okafor,UK & Ireland,Outbound,Closed Lost,24000,2026-06-02,2026-09-09,2026-10-10
+D-2288,L. Okafor,UK & Ireland,LinkedIn Ads,Closed Lost,6000,2026-08-13,2026-09-11,2026-10-10
+D-2289,L. Okafor,UK & Ireland,LinkedIn Ads,Proposal,6000,2026-08-20,2026-11-17,2026-10-10
+D-2290,L. Okafor,UK & Ireland,Paid Search,Demo,6000,2026-10-03,2026-12-02,2026-10-10
+D-2291,L. Okafor,UK & Ireland,Events,Demo,18000,2026-08-21,2026-11-17,2026-10-10
+D-2292,L. Okafor,UK & Ireland,LinkedIn Ads,Proposal,60000,2026-08-20,2026-12-07,2026-10-10
+D-2293,L. Okafor,UK & Ireland,Events,Discovery,12000,2026-07-07,2027-02-08,2026-10-10
+D-2294,L. Okafor,UK & Ireland,Events,Discovery,24000,2026-07-12,2026-12-28,2026-10-10
+D-2295,L. Okafor,UK & Ireland,Referral,Proposal,36000,2026-07-15,2027-02-02,2026-10-10
+D-2296,L. Okafor,UK & Ireland,LinkedIn Ads,Proposal,60000,2026-07-04,2026-11-17,2026-10-10
+D-2297,L. Okafor,UK & Ireland,Events,Discovery,6000,2026-07-29,2026-10-12,2026-10-10
+D-2298,L. Okafor,UK & Ireland,LinkedIn Ads,Discovery,18000,2026-10-04,2026-10-14,2026-10-10
+D-2299,L. Okafor,UK & Ireland,Referral,Demo,48000,2026-08-02,2026-11-21,2026-10-10
+D-2300,L. Okafor,UK & Ireland,Outbound,Discovery,6000,2026-07-17,2026-11-10,2026-10-10
+D-2301,L. Okafor,UK & Ireland,Outbound,Proposal,48000,2026-08-18,2026-12-01,2026-10-10
+D-2302,L. Okafor,UK & Ireland,Paid Search,Negotiation,18000,2026-09-13,2026-10-25,2026-10-10
+D-2303,L. Okafor,UK & Ireland,Outbound,Discovery,24000,2026-08-24,2026-12-04,2026-10-10
+D-2304,L. Okafor,UK & Ireland,Content/SEO,Discovery,24000,2026-08-11,2026-12-22,2026-10-10
+D-2305,L. Okafor,UK & Ireland,LinkedIn Ads,Proposal,6000,2026-09-25,2027-02-07,2026-10-10
+D-2306,L. Okafor,UK & Ireland,LinkedIn Ads,Discovery,36000,2026-09-15,2026-10-17,2026-10-10
+D-2307,L. Okafor,UK & Ireland,Events,Negotiation,60000,2026-08-18,2026-11-08,2026-10-10
+D-2308,S. Vermeulen,Benelux,Events,Closed Won,6000,2025-12-26,2026-01-28,2026-10-10
+D-2309,S. Vermeulen,Benelux,LinkedIn Ads,Closed Won,18000,2025-11-11,2026-01-19,2026-10-10
+D-2310,S. Vermeulen,Benelux,Paid Search,Closed Won,48000,2025-10-08,2026-01-20,2026-10-10
+D-2311,S. Vermeulen,Benelux,Paid Search,Closed Lost,6000,2025-12-08,2026-01-05,2026-10-10
+D-2312,S. Vermeulen,Benelux,LinkedIn Ads,Closed Lost,12000,2025-10-27,2026-01-04,2026-10-10
+D-2313,S. Vermeulen,Benelux,Paid Search,Closed Lost,6000,2025-12-26,2026-01-23,2026-10-10
+D-2314,S. Vermeulen,Benelux,Outbound,Closed Won,6000,2026-01-16,2026-02-23,2026-10-10
+D-2315,S. Vermeulen,Benelux,Content/SEO,Closed Won,6000,2025-10-21,2026-02-03,2026-10-10
+D-2316,S. Vermeulen,Benelux,Outbound,Closed Won,18000,2025-11-21,2026-02-27,2026-10-10
+D-2317,S. Vermeulen,Benelux,Paid Search,Closed Won,9000,2025-12-11,2026-02-28,2026-10-10
+D-2318,S. Vermeulen,Benelux,Paid Search,Closed Lost,18000,2025-12-30,2026-02-07,2026-10-10
+D-2319,S. Vermeulen,Benelux,Events,Closed Lost,9000,2025-12-03,2026-02-02,2026-10-10
+D-2320,S. Vermeulen,Benelux,Outbound,Closed Lost,12000,2025-12-29,2026-02-04,2026-10-10
+D-2321,S. Vermeulen,Benelux,Content/SEO,Closed Won,36000,2025-12-17,2026-03-11,2026-10-10
+D-2322,S. Vermeulen,Benelux,Content/SEO,Closed Won,6000,2026-01-09,2026-03-12,2026-10-10
+D-2323,S. Vermeulen,Benelux,Referral,Closed Lost,36000,2026-01-16,2026-03-23,2026-10-10
+D-2324,S. Vermeulen,Benelux,Referral,Closed Lost,60000,2026-01-15,2026-03-17,2026-10-10
+D-2325,S. Vermeulen,Benelux,Referral,Closed Won,48000,2026-01-06,2026-04-01,2026-10-10
+D-2326,S. Vermeulen,Benelux,Referral,Closed Lost,60000,2026-03-12,2026-04-12,2026-10-10
+D-2327,S. Vermeulen,Benelux,Referral,Closed Lost,18000,2026-03-14,2026-04-19,2026-10-10
+D-2328,S. Vermeulen,Benelux,Referral,Closed Won,12000,2026-04-14,2026-05-14,2026-10-10
+D-2329,S. Vermeulen,Benelux,Paid Search,Closed Won,18000,2026-04-04,2026-05-10,2026-10-10
+D-2330,S. Vermeulen,Benelux,Events,Closed Won,36000,2026-04-04,2026-05-16,2026-10-10
+D-2331,S. Vermeulen,Benelux,Content/SEO,Closed Lost,36000,2026-02-15,2026-05-16,2026-10-10
+D-2332,S. Vermeulen,Benelux,LinkedIn Ads,Closed Lost,12000,2026-03-19,2026-05-19,2026-10-10
+D-2333,S. Vermeulen,Benelux,LinkedIn Ads,Closed Lost,18000,2026-02-24,2026-05-23,2026-10-10
+D-2334,S. Vermeulen,Benelux,Paid Search,Closed Won,9000,2026-03-07,2026-06-16,2026-10-10
+D-2335,S. Vermeulen,Benelux,Events,Closed Won,36000,2026-05-01,2026-06-12,2026-10-10
+D-2336,S. Vermeulen,Benelux,Outbound,Closed Lost,9000,2026-04-06,2026-06-24,2026-10-10
+D-2337,S. Vermeulen,Benelux,Content/SEO,Closed Lost,36000,2026-04-11,2026-06-01,2026-10-10
+D-2338,S. Vermeulen,Benelux,Referral,Closed Lost,48000,2026-03-07,2026-06-09,2026-10-10
+D-2339,S. Vermeulen,Benelux,Events,Closed Lost,48000,2026-04-13,2026-06-06,2026-10-10
+D-2340,S. Vermeulen,Benelux,Referral,Closed Lost,6000,2026-03-28,2026-06-05,2026-10-10
+D-2341,S. Vermeulen,Benelux,Outbound,Closed Won,12000,2026-05-02,2026-07-28,2026-10-10
+D-2342,S. Vermeulen,Benelux,Events,Closed Won,36000,2026-04-08,2026-07-06,2026-10-10
+D-2343,S. Vermeulen,Benelux,Content/SEO,Closed Lost,18000,2026-06-08,2026-07-19,2026-10-10
+D-2344,S. Vermeulen,Benelux,LinkedIn Ads,Closed Lost,18000,2026-04-17,2026-07-15,2026-10-10
+D-2345,S. Vermeulen,Benelux,Outbound,Closed Lost,24000,2026-05-26,2026-07-09,2026-10-10
+D-2346,S. Vermeulen,Benelux,Referral,Closed Lost,18000,2026-04-30,2026-07-05,2026-10-10
+D-2347,S. Vermeulen,Benelux,LinkedIn Ads,Closed Won,12000,2026-05-29,2026-08-08,2026-10-10
+D-2348,S. Vermeulen,Benelux,LinkedIn Ads,Closed Won,24000,2026-07-12,2026-08-24,2026-10-10
+D-2349,S. Vermeulen,Benelux,LinkedIn Ads,Closed Lost,48000,2026-06-24,2026-08-07,2026-10-10
+D-2350,S. Vermeulen,Benelux,Events,Closed Lost,24000,2026-06-24,2026-08-26,2026-10-10
+D-2351,S. Vermeulen,Benelux,Content/SEO,Closed Won,9000,2026-08-09,2026-09-21,2026-10-10
+D-2352,S. Vermeulen,Benelux,Paid Search,Closed Won,18000,2026-06-16,2026-09-13,2026-10-10
+D-2353,S. Vermeulen,Benelux,Outbound,Closed Won,6000,2026-06-20,2026-09-13,2026-10-10
+D-2354,S. Vermeulen,Benelux,Content/SEO,Closed Won,18000,2026-05-30,2026-09-17,2026-10-10
+D-2355,S. Vermeulen,Benelux,Referral,Closed Lost,12000,2026-07-06,2026-09-01,2026-10-10
+D-2356,S. Vermeulen,Benelux,Outbound,Closed Lost,48000,2026-08-30,2026-09-24,2026-10-10
+D-2357,S. Vermeulen,Benelux,Referral,Closed Lost,48000,2026-06-02,2026-09-08,2026-10-10
+D-2358,S. Vermeulen,Benelux,Outbound,Closed Lost,48000,2026-08-01,2026-09-24,2026-10-10
+D-2359,S. Vermeulen,Benelux,Outbound,Closed Lost,18000,2026-08-07,2026-09-24,2026-10-10
+D-2360,S. Vermeulen,Benelux,LinkedIn Ads,Demo,48000,2026-09-23,2026-11-23,2026-10-10
+D-2361,S. Vermeulen,Benelux,Events,Proposal,24000,2026-09-15,2026-12-21,2026-10-10
+D-2362,S. Vermeulen,Benelux,Outbound,Demo,12000,2026-07-31,2026-10-24,2026-10-10
+D-2363,S. Vermeulen,Benelux,Content/SEO,Demo,6000,2026-09-22,2026-10-26,2026-10-10
+D-2364,S. Vermeulen,Benelux,Paid Search,Demo,36000,2026-07-31,2026-10-17,2026-10-10
+D-2365,S. Vermeulen,Benelux,Referral,Negotiation,60000,2026-07-06,2026-11-07,2026-10-10
+D-2366,S. Vermeulen,Benelux,Events,Discovery,36000,2026-07-31,2027-01-12,2026-10-10
+D-2367,S. Vermeulen,Benelux,Referral,Proposal,48000,2026-09-12,2026-11-22,2026-10-10
+D-2368,S. Vermeulen,Benelux,Content/SEO,Proposal,6000,2026-07-16,2026-10-22,2026-10-10
+D-2369,S. Vermeulen,Benelux,Events,Discovery,48000,2026-09-26,2026-11-01,2026-10-10
+D-2370,S. Vermeulen,Benelux,LinkedIn Ads,Proposal,9000,2026-09-02,2026-12-19,2026-10-10
+D-2371,S. Vermeulen,Benelux,Events,Demo,48000,2026-09-07,2026-11-17,2026-10-10
+D-2372,S. Vermeulen,Benelux,Events,Discovery,18000,2026-06-24,2026-10-13,2026-10-10
+D-2373,S. Vermeulen,Benelux,Outbound,Proposal,36000,2026-09-17,2026-12-27,2026-10-10
+D-2374,S. Vermeulen,Benelux,Content/SEO,Proposal,60000,2026-08-14,2027-01-27,2026-10-10
+D-2375,S. Vermeulen,Benelux,Content/SEO,Proposal,60000,2026-06-21,2026-12-25,2026-10-10
+D-2376,S. Vermeulen,Benelux,Events,Proposal,24000,2026-07-10,2026-10-23,2026-10-10
+D-2377,S. Vermeulen,Benelux,Content/SEO,Proposal,24000,2026-07-05,2026-11-26,2026-10-10
+D-2378,S. Vermeulen,Benelux,Referral,Discovery,48000,2026-08-04,2026-11-16,2026-10-10
+D-2379,S. Vermeulen,Benelux,Events,Proposal,24000,2026-09-16,2026-12-12,2026-10-10

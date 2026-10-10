@@ -1,0 +1,735 @@
+<style>
+.fc { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: grid; gap: var(--cds-gap-lg); }
+.fc-top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--cds-gap-md); }
+.fc-top h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0 0 var(--cds-gap-xs); }
+.fc-asof { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fc-demo { color: var(--color-warn); }
+.fc-take { font-size: var(--cds-font-size-body); color: var(--color-fg-muted); margin: var(--cds-gap-sm) 0 0; max-width: 64rem; line-height: 1.55; }
+.fc .fc-take b { color: var(--color-fg); font-weight: 600; }
+.fc-ctrl { display: flex; align-items: center; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fc-ctrl select { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 4px 8px; }
+.fc-ctrl button { font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); background: none; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 4px 8px; cursor: pointer; }
+.fc-section { display: grid; gap: var(--cds-gap-sm); }
+.fc-section > h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: var(--cds-gap-sm) 0 0; }
+.fc-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: var(--cds-gap-md); }
+.fc-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.fc-kpi .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fc-kpi .val { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; margin: var(--cds-gap-xs) 0; min-height: 1.3em; }
+.fc-kpi .sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.ok { color: var(--color-ok); } .bad { color: var(--color-bad); } .warn { color: var(--color-warn); }
+.fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.fc-card h3 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.fc-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 2px 0 var(--cds-gap-md); line-height: 1.45; }
+.fc-chart { position: relative; min-height: 260px; }
+.fc-chart.short { min-height: 220px; }
+.fc-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-sm); }
+.fc-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.fc-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.fc-legend i.dash { height: 0; width: 14px; border-top: 2px dashed var(--cds-chart-reference); border-radius: 0; }
+.fc-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; white-space: nowrap; display: none; z-index: 3; }
+.fc-tip .d { color: var(--cds-text-secondary); margin-bottom: 2px; }
+.fc-tip .r { display: flex; align-items: center; gap: 6px; }
+.fc-tip i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.fc-fail { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.fc-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.fc-qbar { position: relative; min-height: 150px; }
+.fc-qkey { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--cds-gap-sm); margin-top: var(--cds-gap-md); }
+.fc-qkey div { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fc .fc-qkey b { display: block; color: var(--color-fg); font-weight: 500; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+.fc-qkey i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; margin-right: 5px; }
+.fc-need { margin-top: var(--cds-gap-lg); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-gap-md); display: grid; gap: var(--cds-gap-sm); }
+.fc-need-h { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); text-transform: none; }
+.fc-need-r { display: flex; justify-content: space-between; gap: var(--cds-gap-md); font-size: var(--cds-font-size-body); }
+.fc-need-r span { color: var(--color-fg-muted); }
+.fc .fc-need-r b { font-weight: 500; font-variant-numeric: tabular-nums; }
+.fc-tablebox { overflow: auto; }
+.fc-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.fc-table th { position: sticky; top: 0; background: var(--color-panel); text-align: right; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); border-bottom: 1px solid var(--color-border-line); padding: 6px 8px; white-space: nowrap; vertical-align: bottom; }
+.fc-table th:first-child, .fc-table td:first-child { text-align: left; }
+.fc-table th button { all: unset; cursor: pointer; }
+.fc-table td { text-align: right; padding: 8px; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.fc-table tbody tr { cursor: pointer; }
+.fc-table tbody tr:hover td { background: var(--cds-chart-grid); }
+.fc-table tr.sel td { background: var(--cds-chart-grid); }
+.fc-table tr.total td { font-weight: 600; border-top: 1px solid var(--color-border-line); }
+.fc-table .barcell { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.fc-table .bar { width: 64px; height: 8px; border-radius: 4px; background: var(--cds-chart-grid); position: relative; overflow: hidden; }
+.fc-table .bar span { position: absolute; inset: 0 auto 0 0; border-radius: 4px; }
+.fc-table .grp { color: var(--color-fg-muted); font-weight: 400; font-size: var(--cds-font-size-caption); text-align: center; border-bottom: 0; padding-bottom: 0; }
+@media (max-width: 720px) { .fc-table .hide-n { display: none; } }
+.fc-method { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.6; }
+.fc-method p { margin: 0 0 var(--cds-gap-xs); }
+.fc .fc-method b { color: var(--color-fg); font-weight: 500; }
+.fc-probs { display: inline-flex; flex-wrap: wrap; gap: var(--cds-gap-sm); }
+.fc-probs span { border: 1px solid var(--color-border-line); border-radius: 999px; padding: 1px 8px; font-variant-numeric: tabular-nums; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+[data-dash-source-state=empty] { color: transparent; }
+</style>
+
+<div class="fc">
+  <header id="top">
+    <div class="fc-top">
+      <div>
+        <h1>Lumen Labs sales forecast</h1>
+        <div class="fc-asof">Monthly leadership review · data as of <span id="asof" data-source="crm_deals" data-field="snapshot_date" data-row="0" class="dash-skeleton">—</span> · <span class="fc-demo">simulated data</span></div>
+      </div>
+      <div class="fc-ctrl">
+        <label for="rep-pick">Viewing</label>
+        <select id="rep-pick" data-source="forecast_summary" aria-label="Team or rep"></select>
+        <button id="rep-clear" hidden>Show whole team</button>
+      </div>
+    </div>
+    <p class="fc-take" id="takeaway">
+      The team is forecast to finish the year at <b data-source="forecast_summary" data-field="fy_forecast_eur" data-where="owner=All team" class="dash-skeleton">—</b>,
+      <b data-source="forecast_summary" data-field="fy_attainment" data-where="owner=All team" class="dash-skeleton">—</b> of the annual quota.
+      Year to date it is ahead (<b data-source="forecast_summary" data-field="ytd_attainment" data-where="owner=All team" class="dash-skeleton">—</b> of quota),
+      but <span id="t-q">this quarter</span> is at risk: the weighted forecast covers
+      <b data-source="forecast_summary" data-field="q_attainment" data-where="owner=All team" class="dash-skeleton">—</b> of the quarterly quota, and committed deals leave
+      <b data-source="forecast_summary" data-field="q_gap_after_commit_eur" data-where="owner=All team" class="dash-skeleton">—</b> still to find.
+    </p>
+  </header>
+
+  <section class="fc-section" id="headline">
+    <h2 id="h-year">Year</h2>
+    <div class="fc-kpis">
+      <div class="fc-card fc-kpi" id="k-fy">
+        <div class="lbl">Full-year forecast</div>
+        <div class="val dash-skeleton kpi" data-source="forecast_summary" data-field="fy_forecast_eur" data-fmt="eur">—</div>
+        <div class="sub"><span class="kpi" data-source="forecast_summary" data-field="fy_attainment" data-fmt="pct" data-tone="att">—</span> of <span class="kpi" data-source="forecast_summary" data-field="fy_quota_eur" data-fmt="eur">—</span> quota</div>
+      </div>
+      <div class="fc-card fc-kpi" id="k-ytd">
+        <div class="lbl">Closed won · year to date</div>
+        <div class="val dash-skeleton kpi" data-source="forecast_summary" data-field="ytd_won_eur" data-fmt="eur">—</div>
+        <div class="sub"><span class="kpi" data-source="forecast_summary" data-field="ytd_attainment" data-fmt="pct" data-tone="att">—</span> of quota through <span class="lm">last month</span></div>
+      </div>
+      <div class="fc-card fc-kpi" id="k-lm">
+        <div class="lbl">Closed won · <span class="lm">last month</span></div>
+        <div class="val dash-skeleton kpi" data-source="forecast_summary" data-field="last_month_won_eur" data-fmt="eur">—</div>
+        <div class="sub"><span class="kpi" data-source="forecast_summary" data-field="last_month_attainment" data-fmt="pct" data-tone="att">—</span> of monthly quota</div>
+      </div>
+    </div>
+    <h2 id="h-q">This quarter</h2>
+    <div class="fc-kpis">
+      <div class="fc-card fc-kpi" id="k-qf">
+        <div class="lbl">Quarter forecast</div>
+        <div class="val dash-skeleton kpi" data-source="forecast_summary" data-field="q_forecast_eur" data-fmt="eur">—</div>
+        <div class="sub"><span class="kpi" data-source="forecast_summary" data-field="q_attainment" data-fmt="pct" data-tone="att">—</span> of <span class="kpi" data-source="forecast_summary" data-field="q_quota_eur" data-fmt="eur">—</span> quota</div>
+      </div>
+      <div class="fc-card fc-kpi" id="k-qc">
+        <div class="lbl">Closed + commit</div>
+        <div class="val dash-skeleton kpi" data-source="forecast_summary" data-field="q_closed_commit_eur" data-fmt="eur">—</div>
+        <div class="sub"><span class="kpi" data-source="forecast_summary" data-field="q_gap_after_commit_eur" data-fmt="eur">—</span> still to find</div>
+      </div>
+      <div class="fc-card fc-kpi" id="k-cov">
+        <div class="lbl">Pipeline coverage</div>
+        <div class="val dash-skeleton kpi" data-source="forecast_summary" data-field="q_coverage" data-fmt="x" data-tone="cov">—</div>
+        <div class="sub">Open pipeline ÷ quota left · 3× is healthy</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fc-grid">
+    <div class="fc-card" id="cum-card">
+      <h3>Bookings vs quota, cumulative</h3>
+      <p class="fc-note">Closed won so far, then the forecast range to year end: low = commit only, mid = probability-weighted, high = best case.</p>
+      <div class="fc-legend" id="cum-legend"></div>
+      <div class="fc-chart" id="cum-chart" data-source="forecast_by_month"></div>
+    </div>
+    <div class="fc-card" id="q-card">
+      <h3 id="q-title">Quarter forecast by category</h3>
+      <p class="fc-note">What is already closed this quarter, then open deals due this quarter by forecast category, against the quota line.</p>
+      <div class="fc-qbar" id="q-chart" data-source="forecast_summary"></div>
+    </div>
+  </section>
+
+  <section class="fc-card" id="reps">
+    <h3>Rep scorecard</h3>
+    <p class="fc-note">Click a rep to point every card on this page at them. Quarter forecast = closed this quarter + probability-weighted open deals due this quarter.</p>
+    <div class="fc-tablebox">
+      <table class="fc-table" id="rep-table" data-source="forecast_summary" data-row-key="owner">
+        <thead>
+          <tr><th></th><th class="grp hide-n" colspan="2">Year to date</th><th class="grp" colspan="5" id="grp-q">This quarter</th></tr>
+          <tr>
+            <th data-field="owner"><button data-k="owner">Rep</button></th>
+            <th data-field="ytd_won_eur" class="hide-n"><button data-k="ytd_won_eur">Won</button></th>
+            <th data-field="ytd_attainment" class="hide-n"><button data-k="ytd_attainment">vs quota</button></th>
+            <th data-field="q_quota_eur"><button data-k="q_quota_eur">Quota</button></th>
+            <th data-field="q_closed_commit_eur" class="hide-n"><button data-k="q_closed_commit_eur">Closed + commit</button></th>
+            <th data-field="q_forecast_eur"><button data-k="q_forecast_eur">Forecast</button></th>
+            <th data-field="q_attainment"><button data-k="q_attainment">vs quota</button></th>
+            <th data-field="q_coverage"><button data-k="q_coverage">Coverage</button></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="fc-grid">
+    <div class="fc-card" id="month-card">
+      <h3>Monthly bookings vs quota</h3>
+      <p class="fc-note">Closed won each month against that month's quota; months ahead show the weighted forecast.</p>
+      <div class="fc-legend" id="month-legend"></div>
+      <div class="fc-chart short" id="month-chart" data-source="forecast_by_month"></div>
+    </div>
+    <div class="fc-card" id="created-card">
+      <h3>New pipeline created</h3>
+      <p class="fc-note">Value of deals opened each month: the leading indicator for next quarter.</p>
+      <div class="fc-chart short" id="created-chart" data-source="pipeline_created"></div>
+    </div>
+  </section>
+
+  <section class="fc-grid">
+    <div class="fc-card" id="mrr-card">
+      <h3>Recurring revenue vs plan</h3>
+      <p class="fc-note">Whole company. Ending MRR from the warehouse; the line to year end extends the last three months' average net new MRR. Plan from the finance sheet.</p>
+      <div class="fc-legend" id="mrr-legend"></div>
+      <div class="fc-chart short" id="mrr-chart" data-source="mrr_projection"></div>
+    </div>
+    <div class="fc-card" id="method">
+      <h3>How the forecast works</h3>
+      <div class="fc-method">
+        <p><b>Sources.</b> Deals from the CRM; quotas, stage probabilities and the MRR plan from Google Sheets; MRR movements from the warehouse.</p>
+        <p><b>Weighted forecast</b> = closed won + each open deal's amount × its stage probability, counting deals whose expected close date falls in the period.</p>
+        <p><b>Forecast categories</b> come from the stage: commit and best case are the deals leadership can count on most.</p>
+        <div class="fc-probs" id="probs" data-source="stage_probabilities"></div>
+        <p style="margin-top:var(--cds-gap-sm)"><b>Year to date</b> runs through the last full month, so a part-month never drags attainment down. Change a probability in the sheet and every forecast on this page follows.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+// ===== Calculations joining CRM, Sheets and warehouse =====
+dash.calc('forecast_summary', {
+  inputs: ['crm_deals', 'sales_quotas', 'stage_probabilities'],
+  title: 'Forecast summary by rep',
+  description: 'Year, last month and current quarter: quota (Sheets), closed won and open deals (CRM) weighted by stage probability (Sheets).',
+  fn: (crm_deals, sales_quotas, stage_probabilities) => {
+    const prob = new Map(stage_probabilities.map(s => [s.stage, Number(s.probability)]));
+    const cat = new Map(stage_probabilities.map(s => [s.stage, s.forecast_category]));
+    const asOf = crm_deals[0].snapshot_date, year = asOf.slice(0, 4), asOfMonth = asOf.slice(0, 7);
+    const lastFull = [...new Set(sales_quotas.map(q => q.month))].filter(m => m < asOfMonth && m.startsWith(year)).sort().pop();
+    const qStart = Math.floor((Number(asOf.slice(5, 7)) - 1) / 3) * 3 + 1;
+    const inQ = m => m.startsWith(year) && Number(m.slice(5, 7)) >= qStart && Number(m.slice(5, 7)) < qStart + 3;
+    const sum = (rows, f) => rows.reduce((a, r) => a + f(r), 0);
+    const amt = d => Number(d.amount_eur);
+    const owners = ['All team', ...[...new Set(sales_quotas.map(q => q.owner))].sort()];
+    return owners.map(owner => {
+      const mine = r => owner === 'All team' || r.owner === owner;
+      const deals = crm_deals.filter(mine), quotas = sales_quotas.filter(q => mine(q) && q.month.startsWith(year));
+      const won = deals.filter(d => d.stage === 'Closed Won' && d.close_date.startsWith(year));
+      const openFY = deals.filter(d => prob.has(d.stage) && d.close_date.startsWith(year));
+      const openQ = openFY.filter(d => inQ(d.close_date.slice(0, 7)) || d.close_date.slice(0, 7) < asOfMonth);
+      const quota = f => sum(quotas.filter(f), q => Number(q.quota_eur));
+      const fyQuota = quota(() => true), ytdQuota = quota(q => q.month <= lastFull);
+      const lmQuota = quota(q => q.month === lastFull), qQuota = quota(q => inQ(q.month));
+      const fyClosed = sum(won, amt), ytdWon = sum(won.filter(d => d.close_date.slice(0, 7) <= lastFull), amt);
+      const lmWon = sum(won.filter(d => d.close_date.slice(0, 7) === lastFull), amt);
+      const qClosed = sum(won.filter(d => inQ(d.close_date.slice(0, 7))), amt);
+      const weighted = rows => sum(rows, d => amt(d) * prob.get(d.stage));
+      const qCommit = sum(openQ.filter(d => cat.get(d.stage) === 'Commit'), amt);
+      const qBest = sum(openQ.filter(d => cat.get(d.stage) === 'Best Case'), amt);
+      const qPipe = sum(openQ, amt), qWeighted = weighted(openQ);
+      const left = qQuota - qClosed;
+      return {
+        owner, as_of: asOf, year, quarter: 'Q' + ((qStart - 1) / 3 + 1) + ' ' + year, last_full_month: lastFull,
+        fy_quota_eur: fyQuota, fy_closed_eur: fyClosed, fy_weighted_eur: weighted(openFY),
+        fy_forecast_eur: fyClosed + weighted(openFY), fy_attainment: (fyClosed + weighted(openFY)) / fyQuota,
+        ytd_quota_eur: ytdQuota, ytd_won_eur: ytdWon, ytd_attainment: ytdWon / ytdQuota,
+        last_month_quota_eur: lmQuota, last_month_won_eur: lmWon, last_month_attainment: lmWon / lmQuota,
+        q_quota_eur: qQuota, q_closed_eur: qClosed, q_commit_eur: qCommit, q_best_case_eur: qBest,
+        q_other_pipeline_eur: qPipe - qCommit - qBest, q_pipeline_eur: qPipe, q_weighted_eur: qWeighted,
+        q_closed_commit_eur: qClosed + qCommit, q_forecast_eur: qClosed + qWeighted,
+        q_attainment: (qClosed + qWeighted) / qQuota,
+        q_gap_after_commit_eur: Math.max(0, qQuota - qClosed - qCommit),
+        q_best_case_needed: qBest > 0 ? Math.max(0, qQuota - qClosed - qCommit) / qBest : null,
+        q_coverage: left > 0 ? qPipe / left : null
+      };
+    });
+  }
+});
+
+dash.calc('forecast_by_month', {
+  inputs: ['crm_deals', 'sales_quotas', 'stage_probabilities'],
+  title: 'Bookings and forecast by month',
+  description: 'Monthly quota, closed won, and open deals by expected close month (commit, best case, weighted), with running totals.',
+  fn: (crm_deals, sales_quotas, stage_probabilities) => {
+    const prob = new Map(stage_probabilities.map(s => [s.stage, Number(s.probability)]));
+    const cat = new Map(stage_probabilities.map(s => [s.stage, s.forecast_category]));
+    const asOf = crm_deals[0].snapshot_date, year = asOf.slice(0, 4), asOfMonth = asOf.slice(0, 7);
+    const months = [...new Set(sales_quotas.map(q => q.month))].filter(m => m.startsWith(year)).sort();
+    const lastFull = months.filter(m => m < asOfMonth).pop();
+    const amt = d => Number(d.amount_eur);
+    const owners = ['All team', ...[...new Set(sales_quotas.map(q => q.owner))].sort()];
+    const out = [];
+    owners.forEach(owner => {
+      const mine = r => owner === 'All team' || r.owner === owner;
+      const deals = crm_deals.filter(mine), quotas = sales_quotas.filter(mine);
+      const won = deals.filter(d => d.stage === 'Closed Won' && d.close_date.startsWith(year));
+      const open = deals.filter(d => prob.has(d.stage));
+      const closedToDate = won.reduce((a, d) => a + amt(d), 0);
+      let cumQ = 0, cumC = 0, lo = 0, mid = 0, hi = 0;
+      months.forEach(month => {
+        const quota = quotas.filter(q => q.month === month).reduce((a, q) => a + Number(q.quota_eur), 0);
+        const closed = won.filter(d => d.close_date.slice(0, 7) === month).reduce((a, d) => a + amt(d), 0);
+        const due = month < asOfMonth ? [] : open.filter(d => month === asOfMonth ? d.close_date.slice(0, 7) <= month : d.close_date.slice(0, 7) === month);
+        const commit = due.filter(d => cat.get(d.stage) === 'Commit').reduce((a, d) => a + amt(d), 0);
+        const best = commit + due.filter(d => cat.get(d.stage) === 'Best Case').reduce((a, d) => a + amt(d), 0);
+        const weighted = due.reduce((a, d) => a + amt(d) * prob.get(d.stage), 0);
+        cumQ += quota; cumC += closed; lo += commit; mid += weighted; hi += best;
+        const fc = month >= asOfMonth, anchor = month === lastFull;
+        out.push({
+          owner, month, quota_eur: quota, closed_won_eur: closed,
+          commit_eur: commit, best_case_eur: best, weighted_eur: weighted,
+          cum_quota_eur: cumQ, cum_closed_eur: month <= asOfMonth ? cumC : null,
+          cum_low_eur: anchor ? cumC : fc ? closedToDate + lo : null,
+          cum_forecast_eur: anchor ? cumC : fc ? closedToDate + mid : null,
+          cum_high_eur: anchor ? cumC : fc ? closedToDate + hi : null
+        });
+      });
+    });
+    return out;
+  }
+});
+
+dash.calc('pipeline_created', {
+  inputs: ['crm_deals'],
+  title: 'New pipeline by month',
+  description: 'Count and value of CRM deals by the month they were created, this year to date.',
+  fn: (crm_deals) => {
+    const asOf = crm_deals[0].snapshot_date, year = asOf.slice(0, 4);
+    const months = [...new Set(crm_deals.map(d => d.created_date.slice(0, 7)))].filter(m => m.startsWith(year) && m <= asOf.slice(0, 7)).sort();
+    const owners = ['All team', ...[...new Set(crm_deals.map(d => d.owner))].sort()];
+    return owners.flatMap(owner => months.map(month => {
+      const ds = crm_deals.filter(d => (owner === 'All team' || d.owner === owner) && d.created_date.slice(0, 7) === month);
+      return { owner, month, created_deals: ds.length, created_value_eur: ds.reduce((a, d) => a + Number(d.amount_eur), 0) };
+    }));
+  }
+});
+
+dash.calc('mrr_projection', {
+  inputs: ['warehouse_mrr', 'mrr_plan'],
+  title: 'MRR actual, projection and plan',
+  description: 'Warehouse ending MRR; later months add the last three months\' average net new MRR; plan from Sheets.',
+  fn: (warehouse_mrr, mrr_plan) => {
+    const actual = new Map(warehouse_mrr.map(m => [m.month, Number(m.ending_mrr_eur)]));
+    const lastThree = warehouse_mrr.slice(-3);
+    const avgNet = lastThree.reduce((a, m) => a + Number(m.ending_mrr_eur) - Number(m.starting_mrr_eur), 0) / lastThree.length;
+    const lastMonth = warehouse_mrr[warehouse_mrr.length - 1].month;
+    let proj = actual.get(lastMonth);
+    return mrr_plan.map(p => {
+      const a = actual.has(p.month) ? actual.get(p.month) : null;
+      if (p.month > lastMonth) proj += avgNet;
+      return { month: p.month, plan_mrr_eur: Number(p.mrr_plan_eur), actual_mrr_eur: a,
+        projected_mrr_eur: p.month >= lastMonth ? (p.month === lastMonth ? a : proj) : null,
+        vs_plan: (a ?? (p.month >= lastMonth ? proj : null)) / Number(p.mrr_plan_eur) };
+    });
+  }
+});
+</script>
+
+<script>
+// ===== Shared helpers =====
+window.FC = (() => {
+  const compactM = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 2 });
+  const compactK = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 0 });
+  const eur = v => v == null ? '—' : (v < 0 ? '−€' : '€') + (Math.abs(v) >= 1e6 ? compactM : compactK).format(Math.abs(v));
+  const eurFull = v => v == null ? '—' : '€' + d3.format(',.0f')(v);
+  const pct = v => v == null || !isFinite(v) ? '—' : d3.format('.0%')(v);
+  const x = v => v == null || !isFinite(v) ? '—' : v.toFixed(1) + '×';
+  const month = s => new Date(s + '-01T00:00:00Z');
+  const mFmt = d3.utcFormat('%b'), mLong = d3.utcFormat('%B %Y');
+  const day = s => d3.utcFormat('%-d %B %Y')(new Date(s + 'T00:00:00Z'));
+  const rep = () => dash.params().rep || 'All team';
+  const attTone = v => v == null ? '' : v >= 1 ? 'ok' : v >= 0.9 ? 'warn' : 'bad';
+  const covTone = v => v == null ? '' : v >= 3 ? 'ok' : v >= 2 ? 'warn' : 'bad';
+  const tipFor = box => { let t = box.querySelector('.fc-tip'); if (!t) { t = document.createElement('div'); t.className = 'fc-tip'; box.appendChild(t); } return t; };
+  const showTip = (box, tip, px, py, head, rows) => {
+    tip.replaceChildren();
+    const d = document.createElement('div'); d.className = 'd'; d.textContent = head; tip.appendChild(d);
+    rows.forEach(([color, name, val]) => {
+      const r = document.createElement('div'); r.className = 'r';
+      if (color) { const i = document.createElement('i'); i.style.background = color; r.appendChild(i); }
+      const s = document.createElement('span'); s.textContent = name + '  ' + val; r.appendChild(s); tip.appendChild(r);
+    });
+    tip.style.display = 'block';
+    tip.style.left = Math.max(0, Math.min(box.clientWidth - tip.offsetWidth, px + 12)) + 'px';
+    tip.style.top = Math.max(0, py - tip.offsetHeight - 10) + 'px';
+  };
+  const ready = (el, s) => {
+    if (s.status === 'ok') { el.classList.remove('dash-skeleton'); return true; }
+    el.replaceChildren();
+    if (s.status === 'loading' || s.status === 'missing') el.classList.add('dash-skeleton');
+    else { el.classList.remove('dash-skeleton'); const f = document.createElement('div'); f.className = 'fc-fail'; f.textContent = 'Failed to load'; el.appendChild(f); }
+    return false;
+  };
+  const textW = (svg, strings) => {
+    const t = svg.append('text').style('font-size', 'var(--cds-font-size-caption)');
+    let w = 0; strings.forEach(s => { t.text(s); w = Math.max(w, t.node().getComputedTextLength()); });
+    t.remove(); return w;
+  };
+  const styleAxis = g => {
+    g.attr('font-size', null).attr('font-family', null);
+    g.selectAll('text').attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)');
+    g.selectAll('line').attr('stroke', 'var(--cds-chart-grid)');
+    g.select('.domain').remove();
+  };
+  const legend = (el, items) => {
+    el.replaceChildren();
+    items.forEach(([name, color, kind]) => {
+      const s = document.createElement('span'), i = document.createElement('i');
+      if (kind === 'dash') i.className = 'dash'; else i.style.background = color;
+      if (kind === 'faint') i.style.opacity = '.35';
+      s.append(i, name); el.appendChild(s);
+    });
+  };
+  return { eur, eurFull, pct, x, month, mFmt, mLong, day, rep, attTone, covTone, tipFor, showTip, ready, textW, styleAxis, legend };
+})();
+</script>
+
+<script>
+// ===== Rep picker (page-side filter: every calc already has a row per rep) =====
+const fcPick = document.getElementById('rep-pick');
+const fcClear = document.getElementById('rep-clear');
+fcPick.addEventListener('change', () => dash.setParams({ rep: fcPick.value }));
+fcClear.addEventListener('click', () => dash.setParams({ rep: 'All team' }));
+dash.onData(() => {
+  const s = dash.data('forecast_summary');
+  const owners = s.status === 'ok' ? s.data.map(r => r.owner) : ['All team'];
+  if (fcPick.options.length !== owners.length) fcPick.replaceChildren(...owners.map(o => new Option(o === 'All team' ? 'Whole team' : o, o)));
+  fcPick.value = window.FC.rep();
+  fcClear.hidden = window.FC.rep() === 'All team';
+});
+</script>
+
+<script>
+// ===== Header, takeaway and KPI tiles =====
+dash.onData(() => {
+  const F = window.FC, s = dash.data('forecast_summary'), deals = dash.data('crm_deals');
+  const asof = document.getElementById('asof');
+  if (deals.status === 'ok' && deals.data.length) { asof.classList.remove('dash-skeleton'); asof.textContent = F.day(deals.data[0].snapshot_date); }
+  else if (deals.status !== 'loading') asof.classList.remove('dash-skeleton');
+  const ok = s.status === 'ok' && s.data.length;
+  const team = ok ? s.data.find(r => r.owner === 'All team') : null;
+  const cur = ok ? (s.data.find(r => r.owner === F.rep()) || team) : null;
+  const fmt = { eur: F.eur, pct: F.pct, x: F.x };
+  const paint = (el, row) => {
+    if (!row) { el.textContent = '—'; if (s.status === 'loading') el.classList.add('dash-skeleton'); else el.classList.remove('dash-skeleton'); return; }
+    el.classList.remove('dash-skeleton', 'ok', 'warn', 'bad');
+    const v = row[el.dataset.field];
+    el.textContent = (fmt[el.dataset.fmt] || F.eur)(v);
+    const tone = el.dataset.tone === 'att' ? F.attTone(v) : el.dataset.tone === 'cov' ? F.covTone(v) : '';
+    if (tone) el.classList.add(tone);
+  };
+  document.querySelectorAll('#takeaway [data-source="forecast_summary"]').forEach(el => {
+    const f = el.dataset.field;
+    el.dataset.fmt = /attainment/.test(f) ? 'pct' : 'eur';
+    paint(el, team);
+  });
+  document.querySelectorAll('.kpi[data-source="forecast_summary"]').forEach(el => {
+    if (cur) el.dataset.where = 'owner=' + cur.owner;
+    paint(el, cur);
+  });
+  const who = cur && cur.owner !== 'All team' ? cur.owner : 'Whole team';
+  document.getElementById('h-year').textContent = cur ? `${cur.year} · ${who}` : 'Year';
+  document.getElementById('h-q').textContent = cur ? `${cur.quarter} · ${who}` : 'This quarter';
+  document.getElementById('t-q').textContent = team ? team.quarter : 'this quarter';
+  document.getElementById('grp-q').textContent = team ? team.quarter : 'This quarter';
+  document.getElementById('q-title').textContent = cur ? `${cur.quarter} forecast by category · ${who}` : 'Quarter forecast by category';
+  document.querySelectorAll('.lm').forEach(el => { el.textContent = team ? d3.utcFormat('%B')(F.month(team.last_full_month)) : 'last month'; });
+});
+</script>
+
+<script>
+// ===== Cumulative bookings vs quota with forecast range =====
+dash.onData(() => {
+  const F = window.FC, box = document.getElementById('cum-chart');
+  const cA = dash.colors[0];
+  F.legend(document.getElementById('cum-legend'), [['Closed won', cA], ['Forecast range', cA, 'faint'], ['Quota', null, 'dash']]);
+  const s = dash.data('forecast_by_month');
+  if (!F.ready(box, s)) return;
+  box.replaceChildren();
+  const rows = s.data.filter(r => r.owner === F.rep()).map(r => ({ ...r, d: F.month(r.month) }));
+  if (!rows.length) return;
+  const W = box.clientWidth, H = 260;
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  const yMax = d3.max(rows, r => Math.max(r.cum_quota_eur, r.cum_high_eur ?? 0, r.cum_closed_eur ?? 0));
+  const yr = d3.scaleLinear([0, yMax * 1.05], [0, 1]).nice();
+  const ticks = yr.ticks(4);
+  const last = rows[rows.length - 1];
+  const ends = [['Quota ' + F.eur(last.cum_quota_eur), last.cum_quota_eur, 'var(--color-fg-muted)'], ['Forecast ' + F.eur(last.cum_forecast_eur), last.cum_forecast_eur, cA]];
+  const m = { t: 10, r: F.textW(svg, ends.map(e => e[0])) + 12, b: 24, l: F.textW(svg, ticks.map(F.eur)) + 10 };
+  const x = d3.scaleUtc(d3.extent(rows, r => r.d), [m.l, W - m.r]);
+  const y = d3.scaleLinear(yr.domain(), [H - m.b, m.t]);
+  svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(ticks).tickFormat(F.eur).tickSize(-(W - m.l - m.r))).call(F.styleAxis);
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(W < 440 ? 4 : 12).tickFormat(F.mFmt).tickSize(0).tickPadding(8)).call(F.styleAxis);
+  const fc = rows.filter(r => r.cum_forecast_eur != null);
+  svg.append('path').datum(fc).attr('fill', cA).attr('fill-opacity', 0.16)
+    .attr('d', d3.area().x(r => x(r.d)).y0(r => y(r.cum_low_eur)).y1(r => y(r.cum_high_eur)));
+  svg.append('path').datum(rows).attr('d', d3.line().x(r => x(r.d)).y(r => y(r.cum_quota_eur))).attr('fill', 'none').attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 2).attr('stroke-dasharray', '5 4');
+  svg.append('path').datum(fc).attr('d', d3.line().x(r => x(r.d)).y(r => y(r.cum_forecast_eur))).attr('fill', 'none').attr('stroke', cA).attr('stroke-width', 2).attr('stroke-dasharray', '2 3').attr('stroke-linecap', 'round');
+  const act = rows.filter(r => r.cum_closed_eur != null);
+  svg.append('path').datum(act).attr('d', d3.line().x(r => x(r.d)).y(r => y(r.cum_closed_eur))).attr('fill', 'none').attr('stroke', cA).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+  let yq = y(ends[0][1]), yf = y(ends[1][1]);
+  if (Math.abs(yq - yf) < 14) { const mid = (yq + yf) / 2; const up = yq < yf ? -1 : 1; yq = mid + up * 7; yf = mid - up * 7; }
+  [[ends[0], yq], [ends[1], yf]].forEach(([[t, , c], yy]) => svg.append('text').attr('x', W - m.r + 6).attr('y', yy).attr('dy', '0.35em').attr('fill', c).style('font-size', 'var(--cds-font-size-caption)').text(t));
+  const dot = svg.append('circle').attr('r', 4).attr('fill', cA).style('display', 'none');
+  const tip = F.tipFor(box);
+  svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', W - m.l - m.r).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+    .on('mousemove', ev => {
+      const [px] = d3.pointer(ev); const r = rows[d3.leastIndex(rows, q => Math.abs(x(q.d) - px))];
+      const v = r.cum_closed_eur ?? r.cum_forecast_eur;
+      dot.style('display', null).attr('cx', x(r.d)).attr('cy', y(v));
+      const lines = [];
+      if (r.cum_closed_eur != null) lines.push([cA, 'Closed won', F.eurFull(r.cum_closed_eur)]);
+      if (r.cum_closed_eur == null || r.cum_forecast_eur != null && r.month > (rows.find(q => q.cum_closed_eur != null && q.cum_forecast_eur != null && q.month === r.month) ? '' : r.month)) {
+        if (r.cum_forecast_eur != null && r.cum_closed_eur == null) {
+          lines.push([cA, 'Forecast', F.eurFull(r.cum_forecast_eur)]);
+          lines.push([null, 'Range', F.eur(r.cum_low_eur) + ' – ' + F.eur(r.cum_high_eur)]);
+        }
+      }
+      lines.push(['var(--cds-chart-reference)', 'Quota', F.eurFull(r.cum_quota_eur)]);
+      F.showTip(box, tip, x(r.d), y(v), 'Through ' + F.mLong(r.d), lines);
+    })
+    .on('mouseleave', () => { dot.style('display', 'none'); tip.style.display = 'none'; });
+});
+</script>
+
+<script>
+// ===== Quarter forecast by category (stacked bar vs quota) =====
+dash.onData(() => {
+  const F = window.FC, box = document.getElementById('q-chart');
+  const s = dash.data('forecast_summary');
+  if (!F.ready(box, s)) return;
+  box.replaceChildren();
+  const r = s.data.find(q => q.owner === F.rep());
+  if (!r) return;
+  const segs = [
+    ['Closed', r.q_closed_eur, dash.colors[0], 1],
+    ['Commit', r.q_commit_eur, dash.colors[0], 0.6],
+    ['Best case', r.q_best_case_eur, dash.colors[0], 0.32],
+    ['Other pipeline', r.q_other_pipeline_eur, 'var(--cds-chart-muted)', 0.6]
+  ];
+  const W = box.clientWidth, H = 96, m = { l: 0, r: 0, t: 30, b: 22 };
+  const total = d3.sum(segs, d => d[1]);
+  const xMax = Math.max(total, r.q_quota_eur) * 1.04;
+  const x = d3.scaleLinear([0, xMax], [m.l, W - m.r]);
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  let acc = 0; const barY = m.t, barH = 30;
+  const tip = F.tipFor(box);
+  segs.forEach(([name, v, c, o]) => {
+    if (v > 0) svg.append('rect').attr('x', x(acc)).attr('y', barY).attr('width', Math.max(0, x(acc + v) - x(acc) - 1)).attr('height', barH).attr('fill', c).attr('fill-opacity', o).attr('rx', 3)
+      .on('mousemove', ev => { const [px, py] = d3.pointer(ev, box); F.showTip(box, tip, px, py, r.quarter, [[c, name, F.eurFull(v)]]); })
+      .on('mouseleave', () => { tip.style.display = 'none'; });
+    acc += v;
+  });
+  const mark = (v, label, color, dashArr, above) => {
+    svg.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', barY - 6).attr('y2', barY + barH + 6).attr('stroke', color).attr('stroke-width', 2).attr('stroke-dasharray', dashArr);
+    const t = svg.append('text').attr('y', above ? barY - 12 : barY + barH + 18).attr('fill', color).style('font-size', 'var(--cds-font-size-caption)').text(label);
+    const w = t.node().getComputedTextLength();
+    t.attr('x', Math.max(0, Math.min(W - w, x(v) - w / 2)));
+  };
+  mark(r.q_quota_eur, 'Quota ' + F.eur(r.q_quota_eur), 'var(--color-fg)', '4 3', true);
+  mark(r.q_forecast_eur, 'Weighted ' + F.eur(r.q_forecast_eur), dash.colors[0], null, false);
+  const key = document.createElement('div'); key.className = 'fc-qkey';
+  segs.forEach(([name, v, c, o]) => {
+    const d = document.createElement('div'); const i = document.createElement('i'); i.style.background = c; i.style.opacity = o;
+    const b = document.createElement('b'); b.textContent = F.eur(v);
+    d.append(i, name, b); key.appendChild(d);
+  });
+  box.appendChild(key);
+  const need = document.createElement('div'); need.className = 'fc-need';
+  const h = document.createElement('div'); h.className = 'fc-need-h'; h.textContent = 'To hit the quarter';
+  need.appendChild(h);
+  const gap = r.q_gap_after_commit_eur;
+  const lines = gap <= 0
+    ? [['Closed + commit already covers quota', F.eur(r.q_closed_commit_eur), 'ok']]
+    : [
+      ['Quota left after closed + commit', F.eur(gap), ''],
+      ['Best-case deals available', F.eur(r.q_best_case_eur), ''],
+      r.q_best_case_needed != null && r.q_best_case_needed <= 1
+        ? ['Share of best case that must close', F.pct(r.q_best_case_needed), r.q_best_case_needed > 0.6 ? 'warn' : 'ok']
+        : ['Short even if every best-case deal closes', F.eur(gap - r.q_best_case_eur), 'bad']
+    ];
+  lines.forEach(([label, val, tone]) => {
+    const row = document.createElement('div'); row.className = 'fc-need-r';
+    const a = document.createElement('span'); a.textContent = label;
+    const b = document.createElement('b'); b.textContent = val; if (tone) b.className = tone;
+    row.append(a, b); need.appendChild(row);
+  });
+  box.appendChild(need);
+});
+</script>
+
+<script>
+// ===== Rep scorecard (sortable, click to filter) =====
+window.FCsort = { k: 'q_attainment', dir: 1 };
+document.querySelectorAll('#rep-table th button').forEach(b => b.addEventListener('click', () => {
+  const st = window.FCsort; st.dir = st.k === b.dataset.k ? -st.dir : (b.dataset.k === 'owner' ? 1 : -1); st.k = b.dataset.k; window.FCtable();
+}));
+document.querySelector('#rep-table tbody').addEventListener('click', ev => {
+  const tr = ev.target.closest('tr[data-key]'); if (!tr) return;
+  dash.setParams({ rep: window.FC.rep() === tr.dataset.key ? 'All team' : tr.dataset.key });
+});
+window.FCtable = () => {
+  const F = window.FC, tb = document.querySelector('#rep-table tbody'), s = dash.data('forecast_summary');
+  tb.replaceChildren();
+  document.querySelectorAll('#rep-table th[data-field]').forEach(th => th.setAttribute('aria-sort', th.dataset.field === window.FCsort.k ? (window.FCsort.dir > 0 ? 'ascending' : 'descending') : 'none'));
+  if (s.status !== 'ok') {
+    const tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = 8;
+    if (s.status === 'loading') { td.className = 'dash-skeleton'; td.textContent = '—'; } else { const f = document.createElement('div'); f.className = 'fc-fail'; f.textContent = 'Failed to load'; td.appendChild(f); }
+    tr.appendChild(td); tb.appendChild(tr); return;
+  }
+  const { k, dir } = window.FCsort;
+  const reps = s.data.filter(r => r.owner !== 'All team').sort((a, b) => k === 'owner' ? dir * a.owner.localeCompare(b.owner) : dir * ((a[k] ?? -1) - (b[k] ?? -1)));
+  const team = s.data.find(r => r.owner === 'All team');
+  const maxAtt = Math.max(1.2, d3.max(s.data, r => r.ytd_attainment));
+  [...reps, team].filter(Boolean).forEach(r => {
+    const tr = document.createElement('tr');
+    tr.dataset.key = r.owner;
+    if (r.owner === 'All team') tr.className = 'total';
+    if (r.owner === F.rep() && r.owner !== 'All team') tr.classList.add('sel');
+    const cell = (txt, cls, tone) => { const td = document.createElement('td'); if (cls) td.className = cls; if (tone) td.classList.add(tone); td.textContent = txt; tr.appendChild(td); return td; };
+    cell(r.owner);
+    cell(F.eur(r.ytd_won_eur), 'hide-n');
+    const att = cell('', 'hide-n');
+    const wrap = document.createElement('div'); wrap.className = 'barcell';
+    const bar = document.createElement('div'); bar.className = 'bar';
+    const fill = document.createElement('span'); fill.style.width = Math.min(100, 100 * r.ytd_attainment / maxAtt) + '%';
+    fill.style.background = r.ytd_attainment >= 1 ? dash.colors[0] : 'var(--cds-chart-muted)';
+    bar.appendChild(fill);
+    const t = document.createElement('span'); t.textContent = F.pct(r.ytd_attainment); t.className = F.attTone(r.ytd_attainment);
+    wrap.append(bar, t); att.appendChild(wrap);
+    cell(F.eur(r.q_quota_eur));
+    cell(F.eur(r.q_closed_commit_eur), 'hide-n');
+    cell(F.eur(r.q_forecast_eur));
+    cell(F.pct(r.q_attainment), null, F.attTone(r.q_attainment));
+    cell(F.x(r.q_coverage), null, F.covTone(r.q_coverage));
+    tb.appendChild(tr);
+  });
+};
+dash.onData(() => window.FCtable());
+</script>
+
+<script>
+// ===== Monthly bookings vs quota =====
+dash.onData(() => {
+  const F = window.FC, box = document.getElementById('month-chart');
+  const cA = dash.colors[0];
+  F.legend(document.getElementById('month-legend'), [['Closed won', cA], ['Weighted forecast', 'var(--cds-chart-muted)'], ['Quota', null, 'dash']]);
+  const s = dash.data('forecast_by_month');
+  if (!F.ready(box, s)) return;
+  box.replaceChildren();
+  const rows = s.data.filter(r => r.owner === F.rep());
+  if (!rows.length) return;
+  const W = box.clientWidth, H = 220;
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  const yr = d3.scaleLinear([0, d3.max(rows, r => Math.max(r.quota_eur, r.closed_won_eur + r.weighted_eur)) * 1.05], [0, 1]).nice();
+  const ticks = yr.ticks(4);
+  const m = { t: 8, r: 4, b: 24, l: F.textW(svg, ticks.map(F.eur)) + 10 };
+  const x = d3.scaleBand(rows.map(r => r.month), [m.l, W - m.r]).padding(0.28);
+  const y = d3.scaleLinear(yr.domain(), [H - m.b, m.t]);
+  svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(ticks).tickFormat(F.eur).tickSize(-(W - m.l - m.r))).call(F.styleAxis);
+  const every = W < 440 ? 2 : 1;
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickFormat((k, i) => i % every ? '' : F.mFmt(F.month(k))).tickSize(0).tickPadding(8)).call(F.styleAxis);
+  const bw = Math.min(32, x.bandwidth()), off = (x.bandwidth() - bw) / 2;
+  rows.forEach(r => {
+    const bx = x(r.month) + off;
+    if (r.closed_won_eur > 0) svg.append('rect').attr('x', bx).attr('width', bw).attr('y', y(r.closed_won_eur)).attr('height', y(0) - y(r.closed_won_eur)).attr('fill', cA).attr('rx', r.weighted_eur > 0 ? 0 : 4);
+    if (r.weighted_eur > 0) svg.append('rect').attr('x', bx).attr('width', bw).attr('y', y(r.closed_won_eur + r.weighted_eur)).attr('height', y(r.closed_won_eur) - y(r.closed_won_eur + r.weighted_eur)).attr('fill', 'var(--cds-chart-muted)').attr('rx', 4);
+    svg.append('line').attr('x1', x(r.month) - 2).attr('x2', x(r.month) + x.bandwidth() + 2).attr('y1', y(r.quota_eur)).attr('y2', y(r.quota_eur)).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 2).attr('stroke-dasharray', '4 3');
+  });
+  const tip = F.tipFor(box);
+  svg.append('g').selectAll('rect').data(rows).join('rect').attr('x', r => x(r.month)).attr('width', x.bandwidth()).attr('y', m.t).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+    .on('mousemove', (ev, r) => {
+      const lines = [[cA, 'Closed won', F.eurFull(r.closed_won_eur)]];
+      if (r.weighted_eur > 0) lines.push(['var(--cds-chart-muted)', 'Weighted forecast', F.eurFull(r.weighted_eur)]);
+      lines.push(['var(--cds-chart-reference)', 'Quota', F.eurFull(r.quota_eur)]);
+      F.showTip(box, tip, x(r.month) + x.bandwidth() / 2, y(Math.max(r.quota_eur, r.closed_won_eur + r.weighted_eur)), F.mLong(F.month(r.month)), lines);
+    })
+    .on('mouseleave', () => { tip.style.display = 'none'; });
+});
+</script>
+
+<script>
+// ===== New pipeline created =====
+dash.onData(() => {
+  const F = window.FC, box = document.getElementById('created-chart');
+  const s = dash.data('pipeline_created');
+  if (!F.ready(box, s)) return;
+  box.replaceChildren();
+  const rows = s.data.filter(r => r.owner === F.rep());
+  if (!rows.length) return;
+  const W = box.clientWidth, H = 220;
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  const yr = d3.scaleLinear([0, d3.max(rows, r => r.created_value_eur) * 1.08], [0, 1]).nice();
+  const ticks = yr.ticks(4);
+  const m = { t: 8, r: 4, b: 24, l: F.textW(svg, ticks.map(F.eur)) + 10 };
+  const x = d3.scaleBand(rows.map(r => r.month), [m.l, W - m.r]).padding(0.3);
+  const y = d3.scaleLinear(yr.domain(), [H - m.b, m.t]);
+  svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(ticks).tickFormat(F.eur).tickSize(-(W - m.l - m.r))).call(F.styleAxis);
+  const every = W < 440 ? 2 : 1;
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickFormat((k, i) => i % every ? '' : F.mFmt(F.month(k))).tickSize(0).tickPadding(8)).call(F.styleAxis);
+  const bw = Math.min(32, x.bandwidth()), off = (x.bandwidth() - bw) / 2;
+  const lastM = rows[rows.length - 1].month;
+  svg.append('g').selectAll('rect').data(rows).join('rect').attr('x', r => x(r.month) + off).attr('width', bw)
+    .attr('y', r => y(r.created_value_eur)).attr('height', r => y(0) - y(r.created_value_eur)).attr('rx', 4)
+    .attr('fill', dash.colors[1]).attr('fill-opacity', r => r.month === lastM ? 0.45 : 1);
+  const tip = F.tipFor(box);
+  svg.append('g').selectAll('rect').data(rows).join('rect').attr('x', r => x(r.month)).attr('width', x.bandwidth()).attr('y', m.t).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+    .on('mousemove', (ev, r) => F.showTip(box, tip, x(r.month) + x.bandwidth() / 2, y(r.created_value_eur), F.mLong(F.month(r.month)) + (r.month === lastM ? ' (to date)' : ''), [[dash.colors[1], 'Created', F.eurFull(r.created_value_eur)], [null, 'Deals', d3.format(',')(r.created_deals)]]))
+    .on('mouseleave', () => { tip.style.display = 'none'; });
+});
+</script>
+
+<script>
+// ===== MRR vs plan =====
+dash.onData(() => {
+  const F = window.FC, box = document.getElementById('mrr-chart');
+  const cA = dash.colors[2];
+  F.legend(document.getElementById('mrr-legend'), [['Actual', cA], ['Projected', cA, 'faint'], ['Plan', null, 'dash']]);
+  const s = dash.data('mrr_projection');
+  if (!F.ready(box, s)) return;
+  box.replaceChildren();
+  const rows = s.data.map(r => ({ ...r, d: F.month(r.month) }));
+  const W = box.clientWidth, H = 220;
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  const vals = rows.flatMap(r => [r.plan_mrr_eur, r.actual_mrr_eur, r.projected_mrr_eur]).filter(v => v != null);
+  const yr = d3.scaleLinear([d3.min(vals) * 0.94, d3.max(vals) * 1.03], [0, 1]).nice();
+  const ticks = yr.ticks(4);
+  const last = rows[rows.length - 1];
+  const ends = [['Plan ' + F.eur(last.plan_mrr_eur), last.plan_mrr_eur, 'var(--color-fg-muted)'], ['Projected ' + F.eur(last.projected_mrr_eur), last.projected_mrr_eur, cA]];
+  const m = { t: 8, r: F.textW(svg, ends.map(e => e[0])) + 12, b: 24, l: F.textW(svg, ticks.map(F.eur)) + 10 };
+  const x = d3.scaleUtc(d3.extent(rows, r => r.d), [m.l, W - m.r]);
+  const y = d3.scaleLinear(yr.domain(), [H - m.b, m.t]);
+  svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(ticks).tickFormat(F.eur).tickSize(-(W - m.l - m.r))).call(F.styleAxis);
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(W < 440 ? 4 : 12).tickFormat(F.mFmt).tickSize(0).tickPadding(8)).call(F.styleAxis);
+  svg.append('path').datum(rows).attr('d', d3.line().x(r => x(r.d)).y(r => y(r.plan_mrr_eur))).attr('fill', 'none').attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 2).attr('stroke-dasharray', '5 4');
+  svg.append('path').datum(rows.filter(r => r.projected_mrr_eur != null)).attr('d', d3.line().x(r => x(r.d)).y(r => y(r.projected_mrr_eur))).attr('fill', 'none').attr('stroke', cA).attr('stroke-opacity', 0.55).attr('stroke-width', 2).attr('stroke-dasharray', '2 3').attr('stroke-linecap', 'round');
+  svg.append('path').datum(rows.filter(r => r.actual_mrr_eur != null)).attr('d', d3.line().x(r => x(r.d)).y(r => y(r.actual_mrr_eur))).attr('fill', 'none').attr('stroke', cA).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+  let yp = y(ends[0][1]), yj = y(ends[1][1]);
+  if (Math.abs(yp - yj) < 14) { const mid = (yp + yj) / 2; const up = yp < yj ? -1 : 1; yp = mid + up * 7; yj = mid - up * 7; }
+  [[ends[0], yp], [ends[1], yj]].forEach(([[t, , c], yy]) => svg.append('text').attr('x', W - m.r + 6).attr('y', yy).attr('dy', '0.35em').attr('fill', c).style('font-size', 'var(--cds-font-size-caption)').text(t));
+  const tip = F.tipFor(box);
+  const dot = svg.append('circle').attr('r', 4).attr('fill', cA).style('display', 'none');
+  svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', W - m.l - m.r).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+    .on('mousemove', ev => {
+      const [px] = d3.pointer(ev); const r = rows[d3.leastIndex(rows, q => Math.abs(x(q.d) - px))];
+      const v = r.actual_mrr_eur ?? r.projected_mrr_eur;
+      dot.style('display', null).attr('cx', x(r.d)).attr('cy', y(v));
+      F.showTip(box, tip, x(r.d), y(v), F.mLong(r.d), [[cA, r.actual_mrr_eur != null ? 'Actual' : 'Projected', F.eurFull(v)], ['var(--cds-chart-reference)', 'Plan', F.eurFull(r.plan_mrr_eur)], [null, 'vs plan', F.pct(r.vs_plan)]]);
+    })
+    .on('mouseleave', () => { dot.style('display', 'none'); tip.style.display = 'none'; });
+});
+</script>
+
+<script>
+// ===== Stage probabilities (method card) =====
+dash.onData(() => {
+  const box = document.getElementById('probs'), s = dash.data('stage_probabilities');
+  box.replaceChildren();
+  if (s.status !== 'ok') return;
+  s.data.forEach(p => { const sp = document.createElement('span'); sp.textContent = `${p.stage} ${d3.format('.0%')(Number(p.probability))} · ${p.forecast_category}`; box.appendChild(sp); });
+});
+</script>

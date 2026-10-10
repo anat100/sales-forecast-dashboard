@@ -1,0 +1,54 @@
+/* Stand-in for the design tokens the Claude Dashboard runtime provides.
+   Light by default, dark when the OS asks for it or ?theme=dark is set. */
+:root {
+  --font-anthropic-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-anthropic-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --color-fg: #1f1e1b;
+  --color-fg-muted: #6b6860;
+  --color-bg: #faf9f6;
+  --color-panel: #ffffff;
+  --color-border-line: #e6e3dc;
+  --color-ok: #1e7f4f;
+  --color-warn: #a86400;
+  --color-bad: #c2392f;
+  --cds-chart-muted: #c9c5bb;
+  --cds-chart-grid: #efede8;
+  --cds-chart-axis: #b9b5ab;
+  --cds-chart-reference: #8a867c;
+  --cds-chart-status-critical: #c2392f;
+  --cds-surface-popover: #ffffff;
+  --cds-border: #e0ddd5;
+  --cds-shadow-popover: 0 6px 20px rgba(0, 0, 0, .10);
+  --cds-text-secondary: #6b6860;
+  --cds-radius: 10px;
+  --cds-font-size-caption: 12px;
+  --cds-font-size-body: 14px;
+  --cds-font-size-heading: 15px;
+  --cds-font-size-title: 28px;
+  --cds-font-weight-medium: 550;
+  --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 14px; --cds-gap-lg: 22px; --cds-gap-xl: 32px;
+  --cds-pad-xs: 4px; --cds-pad-sm: 8px; --cds-pad-md: 12px; --cds-pad-lg: 18px; --cds-pad-xl: 28px;
+  --cds-dur-slow: 400ms;
+  --cds-ease-out: cubic-bezier(.2, .8, .2, 1);
+}
+:root[data-theme="dark"] {
+  --color-fg: #ecebe6;
+  --color-fg-muted: #a19e95;
+  --color-bg: #1c1b19;
+  --color-panel: #262522;
+  --color-border-line: #3a3834;
+  --color-ok: #5cc48c;
+  --color-warn: #e0a34a;
+  --color-bad: #ef7a6f;
+  --cds-chart-muted: #5a5750;
+  --cds-chart-grid: #33312d;
+  --cds-chart-axis: #5a5750;
+  --cds-chart-reference: #9c988e;
+  --cds-surface-popover: #2f2e2a;
+  --cds-border: #45433e;
+  --cds-text-secondary: #a19e95;
+}
+html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); }
+#dash-root { --dash-gutter: 28px; padding: var(--dash-gutter); max-width: 1320px; margin: 0 auto; box-sizing: border-box; }
+@media (max-width: 600px) { #dash-root { --dash-gutter: 16px; } }
+.dash-skeleton { color: transparent !important; background: var(--cds-chart-grid); border-radius: 6px; }

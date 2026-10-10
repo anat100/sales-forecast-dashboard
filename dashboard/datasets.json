@@ -1,0 +1,39 @@
+{
+  "_about": "Where each number on the dashboard comes from. In this demo every source is a CSV in ../data. In production each becomes a live connector query; the page code does not change.",
+  "crm_deals": {
+    "title": "CRM deals",
+    "system": "CRM (e.g. HubSpot, Salesforce)",
+    "file": "data/crm_deals.csv",
+    "production_source": "Deals object: owner, stage, amount, create date, close date"
+  },
+  "sales_quotas": {
+    "title": "Sheets sales quotas",
+    "system": "Google Sheets (sales ops quota plan)",
+    "file": "data/sheets_sales_quotas.csv",
+    "production_source": "Quota tab: month, owner, quota"
+  },
+  "stage_probabilities": {
+    "title": "Sheets forecast assumptions",
+    "system": "Google Sheets (forecast assumptions owned by RevOps)",
+    "file": "data/sheets_stage_probabilities.csv",
+    "production_source": "Assumptions tab: stage, probability, forecast category"
+  },
+  "mrr_plan": {
+    "title": "Sheets MRR plan",
+    "system": "Google Sheets (finance plan)",
+    "file": "data/sheets_mrr_plan.csv",
+    "production_source": "Plan tab: month, MRR target"
+  },
+  "warehouse_mrr": {
+    "title": "Warehouse MRR movements",
+    "system": "Data warehouse (BigQuery / Snowflake), fed by billing (Stripe) and the product database (Supabase)",
+    "file": "data/warehouse_mrr.csv",
+    "production_source": "Monthly MRR movements model: starting, new, expansion, churned, ending MRR"
+  },
+  "_calculations": {
+    "forecast_summary": "Per rep and whole team: full-year forecast, year to date, last month, and current quarter closed / commit / best case / weighted forecast / coverage. Joins CRM + quotas + stage probabilities.",
+    "forecast_by_month": "Monthly quota, closed won and open deals by expected close month, with running totals for the cumulative forecast range.",
+    "pipeline_created": "Value and count of deals created per month (leading indicator).",
+    "mrr_projection": "Warehouse MRR to date, projected forward at the last three months' average net new MRR, against the finance plan."
+  }
+}

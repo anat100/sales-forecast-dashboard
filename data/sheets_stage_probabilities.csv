@@ -1,0 +1,5 @@
+stage,probability,forecast_category
+Discovery,0.1,Pipeline
+Demo,0.25,Pipeline
+Proposal,0.5,Best Case
+Negotiation,0.8,Commit
